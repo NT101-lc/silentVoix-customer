@@ -26,6 +26,8 @@ const copy = {
     cameraHelp: 'Allow camera access and keep your hands + face in frame.',
     cameraOn: 'Enable Camera',
     cameraOff: 'Turn Off Camera',
+    themeLight: 'Light',
+    themeDark: 'Dark',
     tipsTitle: 'Coach Tips',
     tip1: 'Keep your shoulders visible for clearer gestures.',
     tip2: 'Repeat each sign slowly before increasing playback speed.',
@@ -56,6 +58,8 @@ const copy = {
     cameraHelp: 'Cho phep camera va giu ro tay + khuon mat trong khung.',
     cameraOn: 'Bat Camera',
     cameraOff: 'Tat Camera',
+    themeLight: 'Sang',
+    themeDark: 'Toi',
     tipsTitle: 'Meo Luyen Tap',
     tip1: 'Giup thay ro dong tac bang cach de lo phan vai.',
     tip2: 'Tap cham truoc, sau do moi tang toc do video.',
@@ -111,6 +115,13 @@ const lessons = [
 
 function App() {
   const [lang, setLang] = useState('en');
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = window.localStorage.getItem('silentvoix-theme');
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      return savedTheme;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
   const [activeLessonId, setActiveLessonId] = useState(1);
   const [playbackRate, setPlaybackRate] = useState(1);
   const [cameraEnabled, setCameraEnabled] = useState(false);
@@ -126,6 +137,11 @@ function App() {
       lessonVideoRef.current.playbackRate = playbackRate;
     }
   }, [playbackRate, activeLessonId]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    window.localStorage.setItem('silentvoix-theme', theme);
+  }, [theme]);
 
   async function enableCamera() {
     try {
@@ -161,7 +177,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
+    <div className={`app theme-${theme}`}>
       <div className="bg-glow bg-glow-top" />
       <div className="bg-glow bg-glow-bottom" />
 
@@ -177,10 +193,15 @@ function App() {
           <a href="#progress">{t.navProgress}</a>
         </nav>
 
-        <select value={lang} onChange={(event) => setLang(event.target.value)} className="lang-select">
-          <option value="en">English</option>
-          <option value="vi">Tieng Viet</option>
-        </select>
+        <div className="controls">
+          <button className="theme-toggle" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+            {theme === 'light' ? t.themeDark : t.themeLight}
+          </button>
+          <select value={lang} onChange={(event) => setLang(event.target.value)} className="lang-select">
+            <option value="en">English</option>
+            <option value="vi">Tieng Viet</option>
+          </select>
+        </div>
       </header>
 
       <section className="hero">
