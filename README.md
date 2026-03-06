@@ -67,3 +67,26 @@ Frontend runs at `http://localhost:5173`.
 
 - Current app uses embedded demo videos (public sample URLs).
 - Webcam stream is local in-browser and not uploaded.
+
+## Docker
+
+Build and run with Docker Compose:
+
+```bash
+docker compose up --build -d
+```
+
+App will be available at `http://localhost:8080`.
+
+Stop containers:
+
+```bash
+docker compose down
+```
+
+Or build/run directly with Docker:
+
+```bash
+docker build -t silentvoix-customer-frontend ./frontend
+docker run --rm -p 8080:80 silentvoix-customer-frontend
+```
