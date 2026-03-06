@@ -65,7 +65,7 @@ describe('App', () => {
     render(<App />);
 
     fireEvent.change(screen.getByDisplayValue('English'), { target: { value: 'vi' } });
-    expect(screen.getByRole('heading', { name: copy.vi.lessonsTitle })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: copy.vi.catalogTitle })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: copy.vi.themeDark })).toBeInTheDocument();
   });
 });
