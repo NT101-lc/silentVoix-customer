@@ -1,4 +1,4 @@
-function Topbar({ t, lang, theme, currentRoute, onLangChange, onThemeToggle, onNavigate }) {
+function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeToggle, onNavigate, onLogout }) {
   const navItems = [
     { key: 'home', label: t.navHome, path: '/' },
     { key: 'courses', label: t.navCourses, path: '/courses' },
@@ -26,6 +26,33 @@ function Topbar({ t, lang, theme, currentRoute, onLangChange, onThemeToggle, onN
       </nav>
 
       <div className="controls">
+        <div className="auth-controls" aria-label={t.authNavAria}>
+          {user ? (
+            <>
+              <span className="auth-user">
+                {t.authWelcome}, {user.fullName}
+              </span>
+              <button className="auth-link" onClick={onLogout}>
+                {t.navLogout}
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className={`auth-link ${currentRoute === 'login' ? 'active' : ''}`}
+                onClick={() => onNavigate('/login')}
+              >
+                {t.navLogin}
+              </button>
+              <button
+                className={`auth-link ${currentRoute === 'signup' ? 'active' : ''}`}
+                onClick={() => onNavigate('/signup')}
+              >
+                {t.navSignup}
+              </button>
+            </>
+          )}
+        </div>
         <button className="theme-toggle" onClick={onThemeToggle}>
           {theme === 'light' ? t.themeDark : t.themeLight}
         </button>

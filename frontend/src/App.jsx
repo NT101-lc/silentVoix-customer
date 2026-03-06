@@ -6,7 +6,9 @@ import StudioPanel from './components/StudioPanel';
 import CourseCatalog from './components/CourseCatalog';
 import CourseDetail from './components/CourseDetail';
 import Dashboard from './components/Dashboard';
+import AuthPage from './components/AuthPage';
 import { copy, lessons } from './data/content';
+import { loginRequest, signupRequest } from './api';
 import './App.css';
 
 function getRoute(pathname) {
@@ -28,6 +30,12 @@ function getRoute(pathname) {
   if (pathname === '/dashboard') {
     return { name: 'dashboard' };
   }
+  if (pathname === '/login') {
+    return { name: 'login' };
+  }
+  if (pathname === '/signup') {
+    return { name: 'signup' };
+  }
   return { name: 'not-found' };
 }
 
@@ -45,6 +53,17 @@ function App() {
   const [playbackRate, setPlaybackRate] = useState(1);
   const [cameraEnabled, setCameraEnabled] = useState(false);
   const [completedLessons, setCompletedLessons] = useState([]);
+  const [auth, setAuth] = useState(() => {
+    const savedAuth = window.localStorage.getItem('silentvoix-auth');
+    if (!savedAuth) {
+      return { token: null, user: null };
+    }
+    try {
+      return JSON.parse(savedAuth);
+    } catch {
+      return { token: null, user: null };
+    }
+  });
   const cameraRef = useRef(null);
   const lessonVideoRef = useRef(null);
   const streamRef = useRef(null);
@@ -77,6 +96,14 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem('silentvoix-theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    if (auth?.token && auth?.user) {
+      window.localStorage.setItem('silentvoix-auth', JSON.stringify(auth));
+      return;
+    }
+    window.localStorage.removeItem('silentvoix-auth');
+  }, [auth]);
 
   async function enableCamera() {
     try {
@@ -133,6 +160,18 @@ function App() {
 
   function markLessonDone(lessonId) {
     setCompletedLessons((prev) => (prev.includes(lessonId) ? prev : [...prev, lessonId]));
+  }
+
+  async function handleAuthSubmit({ fullName, email, password, mode }) {
+    const payload = mode === 'signup' ? { fullName, email, password } : { email, password };
+    const response = mode === 'signup' ? await signupRequest(payload) : await loginRequest(payload);
+    setAuth(response);
+    navigate('/dashboard');
+  }
+
+  function handleLogout() {
+    setAuth({ token: null, user: null });
+    navigate('/');
   }
 
   let pageContent = null;
@@ -210,13 +249,36 @@ function App() {
   }
 
   if (route.name === 'dashboard') {
+    if (!auth.user) {
+      pageContent = (
+        <section className="panel page-state">
+          <h2>{t.authRequiredTitle}</h2>
+          <p>{t.authRequiredSub}</p>
+          <button className="action" onClick={() => navigate('/login')}>
+            {t.goToLogin}
+          </button>
+        </section>
+      );
+    } else {
+      pageContent = (
+        <Dashboard
+          t={t}
+          lang={lang}
+          lessons={lessons}
+          completedCount={completedLessons.length}
+          onContinueLesson={goToLearning}
+        />
+      );
+    }
+  }
+
+  if (route.name === 'login' || route.name === 'signup') {
     pageContent = (
-      <Dashboard
+      <AuthPage
         t={t}
-        lang={lang}
-        lessons={lessons}
-        completedCount={completedLessons.length}
-        onContinueLesson={goToLearning}
+        mode={route.name}
+        onSubmit={handleAuthSubmit}
+        onNavigate={navigate}
       />
     );
   }
@@ -245,9 +307,11 @@ function App() {
         lang={lang}
         theme={theme}
         currentRoute={currentRoute}
+        user={auth.user}
         onLangChange={setLang}
         onThemeToggle={toggleTheme}
         onNavigate={navigate}
+        onLogout={handleLogout}
       />
 
       {pageContent}
