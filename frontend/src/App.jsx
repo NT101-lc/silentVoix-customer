@@ -49,7 +49,7 @@ function App() {
     }
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   });
-  const [activeLessonId, setActiveLessonId] = useState(1);
+  const [selectedLessonId, setSelectedLessonId] = useState(1);
   const [playbackRate, setPlaybackRate] = useState(1);
   const [cameraEnabled, setCameraEnabled] = useState(false);
   const [completedLessons, setCompletedLessons] = useState([]);
@@ -70,6 +70,15 @@ function App() {
 
   const t = useMemo(() => copy[lang], [lang]);
   const route = useMemo(() => getRoute(pathname), [pathname]);
+  const activeLessonId = useMemo(() => {
+    if (route.lessonId) {
+      const matchedLesson = lessons.find((lesson) => lesson.id === route.lessonId);
+      if (matchedLesson) {
+        return matchedLesson.id;
+      }
+    }
+    return selectedLessonId;
+  }, [route.lessonId, selectedLessonId]);
   const activeLesson = lessons.find((lesson) => lesson.id === activeLessonId) || lessons[0];
 
   useEffect(() => {
@@ -77,15 +86,6 @@ function App() {
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
-
-  useEffect(() => {
-    if (route.lessonId) {
-      const matchedLesson = lessons.find((lesson) => lesson.id === route.lessonId);
-      if (matchedLesson) {
-        setActiveLessonId(matchedLesson.id);
-      }
-    }
-  }, [route.lessonId]);
 
   useEffect(() => {
     if (lessonVideoRef.current) {
@@ -219,7 +219,7 @@ function App() {
           lessons={lessons}
           activeLessonId={activeLessonId}
           onLessonSelect={(lessonId) => {
-            setActiveLessonId(lessonId);
+            setSelectedLessonId(lessonId);
             goToLearning(lessonId);
           }}
         />
