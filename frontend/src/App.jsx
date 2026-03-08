@@ -7,6 +7,7 @@ import CourseCatalog from './components/CourseCatalog';
 import CourseDetail from './components/CourseDetail';
 import Dashboard from './components/Dashboard';
 import AuthPage from './components/AuthPage';
+import SettingsPage from './components/SettingsPage';
 import { copy, lessons } from './data/content';
 import { loginRequest, signupRequest } from './api';
 import './App.css';
@@ -35,6 +36,9 @@ function getRoute(pathname) {
   }
   if (pathname === '/signup') {
     return { name: 'signup' };
+  }
+  if (pathname === '/settings') {
+    return { name: 'settings' };
   }
   return { name: 'not-found' };
 }
@@ -138,10 +142,6 @@ function App() {
     };
   }, []);
 
-  function toggleTheme() {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-  }
-
   function navigate(nextPath) {
     if (nextPath === pathname) {
       return;
@@ -172,6 +172,11 @@ function App() {
   function handleLogout() {
     setAuth({ token: null, user: null });
     navigate('/');
+  }
+
+  function handleUserSave(nextUser) {
+    setAuth((prevAuth) => ({ ...prevAuth, user: nextUser }));
+    navigate('/dashboard');
   }
 
   let pageContent = null;
@@ -283,6 +288,33 @@ function App() {
     );
   }
 
+  if (route.name === 'settings') {
+    if (!auth.user) {
+      pageContent = (
+        <section className="panel page-state">
+          <h2>{t.authRequiredTitle}</h2>
+          <p>{t.authRequiredSub}</p>
+          <button className="action" onClick={() => navigate('/login')}>
+            {t.goToLogin}
+          </button>
+        </section>
+      );
+    } else {
+      pageContent = (
+        <SettingsPage
+          t={t}
+          user={auth.user}
+          lang={lang}
+          theme={theme}
+          onLangChange={setLang}
+          onThemeChange={setTheme}
+          onSave={handleUserSave}
+          onLogout={handleLogout}
+        />
+      );
+    }
+  }
+
   if (route.name === 'not-found') {
     pageContent = (
       <section className="panel page-state">
@@ -304,14 +336,9 @@ function App() {
 
       <Topbar
         t={t}
-        lang={lang}
-        theme={theme}
         currentRoute={currentRoute}
         user={auth.user}
-        onLangChange={setLang}
-        onThemeToggle={toggleTheme}
         onNavigate={navigate}
-        onLogout={handleLogout}
       />
 
       {pageContent}

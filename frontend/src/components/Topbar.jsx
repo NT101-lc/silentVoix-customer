@@ -1,4 +1,4 @@
-function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeToggle, onNavigate, onLogout }) {
+function Topbar({ t, currentRoute, user, onNavigate }) {
   const navItems = [
     { key: 'home', label: t.navHome, path: '/' },
     { key: 'courses', label: t.navCourses, path: '/courses' },
@@ -28,14 +28,15 @@ function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeToggl
       <div className="controls">
         <div className="auth-controls" aria-label={t.authNavAria}>
           {user ? (
-            <>
-              <span className="auth-user">
-                {t.authWelcome}, {user.fullName}
+            <button className="profile-icon-button" onClick={() => onNavigate('/settings')} title={t.navSettings}>
+              <span className="profile-avatar" aria-hidden="true">
+                {user.avatarDataUrl ? (
+                  <img src={user.avatarDataUrl} alt="" className="profile-avatar-image" />
+                ) : (
+                  getInitials(user.fullName)
+                )}
               </span>
-              <button className="auth-link" onClick={onLogout}>
-                {t.navLogout}
-              </button>
-            </>
+            </button>
           ) : (
             <>
               <button
@@ -53,16 +54,21 @@ function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeToggl
             </>
           )}
         </div>
-        <button className="theme-toggle" onClick={onThemeToggle}>
-          {theme === 'light' ? t.themeDark : t.themeLight}
-        </button>
-        <select value={lang} onChange={(event) => onLangChange(event.target.value)} className="lang-select">
-          <option value="en">English</option>
-          <option value="vi">Tieng Viet</option>
-        </select>
       </div>
     </header>
   );
+}
+
+function getInitials(fullName) {
+  if (!fullName) {
+    return '?';
+  }
+  return fullName
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() || '')
+    .join('');
 }
 
 export default Topbar;
