@@ -972,7 +972,73 @@
 }
 
 #learn-page {
-  grid-template-columns: 1fr 1.3fr;
+  grid-template-columns: minmax(210px, 260px) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+#learn-page .lessons {
+  position: sticky;
+  top: 92px;
+  padding: 12px;
+  max-height: calc(100vh - 116px);
+  overflow: auto;
+}
+
+#learn-page .lessons .section-head h2 {
+  font-size: 0.98rem;
+}
+
+#learn-page .lessons .section-head p {
+  display: none;
+}
+
+#learn-page .lesson-list {
+  gap: 6px;
+}
+
+#learn-page .lesson-card {
+  border-radius: 8px;
+  padding: 9px;
+}
+
+#learn-page .lesson-card p,
+#learn-page .lesson-signs {
+  display: none;
+}
+
+#learn-page .lesson-head {
+  align-items: center;
+}
+
+#learn-page .lesson-head h3 {
+  font-size: 0.88rem;
+  line-height: 1.25;
+}
+
+#learn-page .lesson-head span {
+  font-size: 0.66rem;
+}
+
+#learn-page .lesson-meta {
+  margin-top: 6px;
+  font-size: 0.72rem;
+}
+
+#learn-page .studio {
+  min-width: 0;
+}
+
+#learn-page .studio-grid {
+  grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.82fr);
+}
+
+#learn-page .lesson-player .media {
+  min-height: 430px;
+}
+
+#learn-page .camera-card .media {
+  min-height: 330px;
 }
 
 .route-actions {
@@ -1350,6 +1416,27 @@
     grid-template-columns: 1fr;
   }
 
+  #learn-page .lessons {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+
+  #learn-page .lesson-list {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  #learn-page .lesson-card {
+    min-width: 210px;
+  }
+
+  #learn-page .studio-grid {
+    grid-template-columns: 1fr;
+  }
+
   .glove-hero,
   .glove-grid {
     grid-template-columns: 1fr;
@@ -1430,5 +1517,14 @@
   .lesson-player .media,
   .projector-mode .lesson-player .media {
     min-height: 230px;
+  }
+
+  #learn-page .lesson-card {
+    min-width: 180px;
+  }
+
+  #learn-page .lesson-player .media,
+  #learn-page .camera-card .media {
+    min-height: 240px;
   }
 }
