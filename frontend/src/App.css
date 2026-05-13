@@ -1026,10 +1026,340 @@
   cursor: pointer;
 }
 
+.glove-page {
+  display: grid;
+  gap: 14px;
+}
+
+.glove-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.84fr);
+  gap: 18px;
+  align-items: end;
+  background:
+    linear-gradient(135deg, rgba(15, 159, 143, 0.16), transparent 34%),
+    linear-gradient(315deg, rgba(244, 162, 97, 0.2), transparent 35%),
+    var(--surface);
+}
+
+.eyebrow {
+  display: inline-flex;
+  margin-bottom: 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.glove-hero h1 {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(2rem, 4.4vw, 4.2rem);
+  line-height: 1.12;
+  font-weight: 880;
+}
+
+.glove-hero p {
+  max-width: 680px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.glove-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.status-card {
+  min-height: 110px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  background: color-mix(in srgb, var(--surface-soft), var(--surface) 34%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.status-card span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.status-card strong {
+  color: var(--text);
+  font-size: 1.45rem;
+}
+
+.status-card.online strong,
+.status-card.ready strong {
+  color: var(--accent-strong);
+}
+
+.status-card.fast strong,
+.status-card.sample strong {
+  color: var(--warm);
+}
+
+.glove-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.74fr) minmax(340px, 1.16fr) minmax(260px, 0.8fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.calibration-panel,
+.live-panel,
+.sensor-panel,
+.conversation-panel,
+.training-panel,
+.coach-panel {
+  min-height: 100%;
+}
+
+.live-panel {
+  grid-row: span 2;
+}
+
+.conversation-panel {
+  grid-column: span 2;
+}
+
+.coach-panel {
+  grid-column: span 2;
+}
+
+.calibration-steps {
+  margin: 14px 0;
+  display: grid;
+  gap: 8px;
+}
+
+.calibration-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px;
+  background: var(--surface-soft);
+}
+
+.calibration-step span {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.calibration-step p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.calibration-step.complete {
+  border-color: var(--accent);
+}
+
+.calibration-step.complete span,
+.calibration-step.active span {
+  background: var(--accent);
+  color: var(--button-text);
+}
+
+.prediction-card {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background:
+    linear-gradient(160deg, rgba(15, 159, 143, 0.14), transparent 42%),
+    var(--surface-soft);
+}
+
+.model-state {
+  display: inline-flex;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  padding: 6px 9px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.prediction-card strong {
+  display: block;
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  line-height: 1;
+  color: var(--text);
+}
+
+.prediction-card p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.confidence-row,
+.sensor-row div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.confidence-row b,
+.sensor-row b {
+  color: var(--accent-strong);
+}
+
+.confidence-meter,
+.sensor-meter,
+.training-progress {
+  height: 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.confidence-meter span,
+.sensor-meter span,
+.training-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--warm));
+}
+
+.glove-actions {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sensor-list {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.sensor-row {
+  display: grid;
+  gap: 6px;
+}
+
+.conversation-list {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.conversation-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--surface-soft);
+}
+
+.conversation-item span {
+  color: var(--accent-strong);
+  font-size: 0.8rem;
+  font-weight: 850;
+}
+
+.conversation-item p {
+  margin: 5px 0 0;
+  color: var(--text);
+}
+
+.empty-state {
+  margin: 0;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  color: var(--muted);
+}
+
+.training-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.shortcut-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.shortcut-grid > div,
+.shortcut-button {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--surface-soft);
+  text-align: left;
+}
+
+.shortcut-grid > div span {
+  color: var(--accent-strong);
+  font-weight: 850;
+}
+
+.shortcut-grid > div p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.shortcut-button {
+  color: var(--text);
+  cursor: pointer;
+}
+
+.shortcut-button strong,
+.shortcut-button span {
+  display: block;
+}
+
+.shortcut-button span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
 @media (max-width: 1040px) {
   .content,
   #learn-page {
     grid-template-columns: 1fr;
+  }
+
+  .glove-hero,
+  .glove-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .conversation-panel,
+  .coach-panel,
+  .live-panel {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .hero {

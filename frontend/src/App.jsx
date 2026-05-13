@@ -8,6 +8,7 @@ import CourseDetail from './components/CourseDetail';
 import Dashboard from './components/Dashboard';
 import AuthPage from './components/AuthPage';
 import SettingsPage from './components/SettingsPage';
+import GloveDemo from './components/GloveDemo';
 import { copy, lessons } from './data/content';
 import { loginRequest, signupRequest } from './api';
 import './App.css';
@@ -27,6 +28,9 @@ function getRoute(pathname) {
   }
   if (learnMatch) {
     return { name: 'learn', lessonId: Number(learnMatch[1]) };
+  }
+  if (pathname === '/glove') {
+    return { name: 'glove' };
   }
   if (pathname === '/dashboard') {
     return { name: 'dashboard' };
@@ -277,6 +281,10 @@ function App() {
         />
       );
     }
+  }
+
+  if (route.name === 'glove') {
+    pageContent = <GloveDemo lang={lang} />;
   }
 
   if (route.name === 'login' || route.name === 'signup') {

@@ -3,6 +3,7 @@ function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeChang
     { key: 'home', label: t.navHome, path: '/' },
     { key: 'courses', label: t.navCourses, path: '/courses' },
     { key: 'learn', label: t.navLearn, path: '/learn/1' },
+    { key: 'glove', label: t.navGlove, path: '/glove' },
     { key: 'dashboard', label: t.navDashboard, path: '/dashboard' }
   ];
 
