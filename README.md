@@ -51,6 +51,9 @@ Frontend runs at `http://localhost:5173`.
 ## API Endpoints
 
 - `GET /api/health`
+- `GET /api/signs/sources`
+- `GET /api/signs/trending?limit=12`
+- `GET /api/signs/lookup?term=hello&sources=signasl,anysign`
 - `GET /api/lessons?lang=en|vi`
 - `GET /api/lessons/:id?lang=en|vi`
 

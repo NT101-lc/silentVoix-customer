@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { env } from './config/env.js';
 import authRoutes from './routes/authRoutes.js';
+import signRoutes from './routes/signRoutes.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
 const app = express();
@@ -35,6 +36,7 @@ app.get('/api/health', (_req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/signs', signRoutes);
 app.use(errorHandler);
 
 app.listen(env.port, () => {

@@ -35,6 +35,21 @@ export const copy = {
     cameraHelp: 'Allow camera access and keep your hands + face in frame.',
     cameraOn: 'Enable Camera',
     cameraOff: 'Turn Off Camera',
+    projectorMode: 'Projector',
+    exitProjector: 'Exit Projector',
+    lessonScript: 'Lesson Script',
+    signGuideTitle: 'Hand Sign Coach',
+    signGuideSub: 'Learn the shape, motion, and customer phrase before practicing.',
+    handShape: 'Hand Shape',
+    movement: 'Movement',
+    practiceCue: 'Practice Cue',
+    commonMistake: 'Common Mistake',
+    drillTitle: 'Practice Drill',
+    drillWatch: 'Watch the tutor video once.',
+    drillLearn: 'Study each sign card below.',
+    drillMirror: 'Turn on camera and mirror the sign.',
+    drillRepeat: 'Repeat 3 times at slow speed.',
+    signsCount: 'signs',
     themeLight: 'Light',
     themeDark: 'Dark',
     tipsTitle: 'Coach Tips',
@@ -84,7 +99,7 @@ export const copy = {
     settingsUploadPhoto: 'Upload Photo',
     settingsRemovePhoto: 'Remove Photo',
     settingsEmailLocked: 'Email cannot be changed from settings.',
-    footer: 'UI/UX Prototype Only - Backend comes next.'
+    footer: 'SilentVoix demo - Video lessons, guided hand signs, and camera practice.'
   },
   vi: {
     brand: 'SilentVoix',
@@ -122,6 +137,21 @@ export const copy = {
     cameraHelp: 'Cho phep camera va giu ro tay + khuon mat trong khung.',
     cameraOn: 'Bat Camera',
     cameraOff: 'Tat Camera',
+    projectorMode: 'Chieu Lon',
+    exitProjector: 'Thoat Chieu Lon',
+    lessonScript: 'Kich Ban Bai Hoc',
+    signGuideTitle: 'Huong Dan Hand Sign',
+    signGuideSub: 'Hoc dang tay, chuyen dong va cau noi voi khach truoc khi thuc hanh.',
+    handShape: 'Dang tay',
+    movement: 'Chuyen dong',
+    practiceCue: 'Cau luyen tap',
+    commonMistake: 'Loi thuong gap',
+    drillTitle: 'Bai luyen',
+    drillWatch: 'Xem video giao vien mot lan.',
+    drillLearn: 'Hoc tung the ky hieu ben duoi.',
+    drillMirror: 'Bat camera va tap theo nhu guong.',
+    drillRepeat: 'Lap lai 3 lan o toc do cham.',
+    signsCount: 'ky hieu',
     themeLight: 'Sang',
     themeDark: 'Toi',
     tipsTitle: 'Meo Luyen Tap',
@@ -171,7 +201,7 @@ export const copy = {
     settingsUploadPhoto: 'Tai Anh',
     settingsRemovePhoto: 'Xoa Anh',
     settingsEmailLocked: 'Khong the doi email trong cai dat.',
-    footer: 'Day la ban UI/UX, backend se lam sau.'
+    footer: 'SilentVoix demo - Video bai hoc, huong dan hand sign va luyen tap camera.'
   }
 };
 
@@ -188,7 +218,34 @@ export const lessons = [
       en: 'Learn hello, welcome, and thank you signs for front-desk interactions.',
       vi: 'Hoc cac ky hieu xin chao, chao mung va cam on cho quay tiep tan.'
     },
-    videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-5s.mp4'
+    videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-5s.mp4',
+    script: {
+      en: 'Reception flow: greet the customer, invite them in, then close with thanks.',
+      vi: 'Quy trinh tiep tan: chao khach, moi khach vao, sau do ket thuc bang loi cam on.'
+    },
+    signs: [
+      {
+        label: { en: 'Hello', vi: 'Xin chao' },
+        handShape: { en: 'Open palm near temple', vi: 'Long ban tay mo gan thai duong' },
+        movement: { en: 'Move the palm outward with relaxed fingers.', vi: 'Dua ban tay ra ngoai, ngon tay tha long.' },
+        cue: { en: 'Hello, welcome to SilentVoix.', vi: 'Xin chao, chao mung den SilentVoix.' },
+        mistake: { en: 'Do not cover the eyes or drop the wrist.', vi: 'Dung che mat hoac ha co tay qua thap.' }
+      },
+      {
+        label: { en: 'Welcome', vi: 'Chao mung' },
+        handShape: { en: 'Both hands open at chest level', vi: 'Hai ban tay mo ngang nguc' },
+        movement: { en: 'Pull both hands gently toward your body.', vi: 'Keo nhe hai tay ve phia minh.' },
+        cue: { en: 'Welcome, how can I help?', vi: 'Chao mung, toi co the ho tro gi?' },
+        mistake: { en: 'Keep elbows visible inside the camera frame.', vi: 'Giu khuyu tay nam trong khung camera.' }
+      },
+      {
+        label: { en: 'Thank You', vi: 'Cam on' },
+        handShape: { en: 'Flat hand from chin', vi: 'Ban tay phang tu cam' },
+        movement: { en: 'Move the hand forward from chin to customer.', vi: 'Dua tay tu cam huong ve phia khach.' },
+        cue: { en: 'Thank you for waiting.', vi: 'Cam on quy khach da cho.' },
+        mistake: { en: 'Avoid a sharp flick; keep the motion calm.', vi: 'Khong hat tay qua manh; giu dong tac mem.' }
+      }
+    ]
   },
   {
     id: 2,
@@ -202,7 +259,34 @@ export const lessons = [
       en: 'Practice signs for asking needs, clarifying requests, and confirming understanding.',
       vi: 'Luyen ky hieu de hoi nhu cau, lam ro yeu cau va xac nhan thong tin.'
     },
-    videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-10s.mp4'
+    videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-10s.mp4',
+    script: {
+      en: 'Support flow: ask what the customer needs, clarify details, and confirm understanding.',
+      vi: 'Quy trinh ho tro: hoi nhu cau, lam ro chi tiet va xac nhan da hieu.'
+    },
+    signs: [
+      {
+        label: { en: 'Need', vi: 'Can' },
+        handShape: { en: 'Index finger bends downward', vi: 'Ngon tro gap xuong' },
+        movement: { en: 'Bend the index finger twice at chest level.', vi: 'Gap ngon tro hai lan ngang nguc.' },
+        cue: { en: 'What do you need today?', vi: 'Hom nay quy khach can gi?' },
+        mistake: { en: 'Do not point at the customer aggressively.', vi: 'Khong chi thang vao khach qua gay gat.' }
+      },
+      {
+        label: { en: 'Question', vi: 'Cau hoi' },
+        handShape: { en: 'Index finger lifted', vi: 'Nang ngon tro' },
+        movement: { en: 'Draw a small question mark in the air.', vi: 'Ve dau hoi nho trong khong gian.' },
+        cue: { en: 'May I ask one question?', vi: 'Toi co the hoi mot cau khong?' },
+        mistake: { en: 'Keep the movement small and easy to read.', vi: 'Giu chuyen dong nho va de nhin.' }
+      },
+      {
+        label: { en: 'Understand', vi: 'Hieu' },
+        handShape: { en: 'Index finger near forehead', vi: 'Ngon tro gan tran' },
+        movement: { en: 'Flick the finger up lightly from the forehead.', vi: 'Bat nhe ngon tay len tu vung tran.' },
+        cue: { en: 'I understand your request.', vi: 'Toi da hieu yeu cau cua quy khach.' },
+        mistake: { en: 'Do not rush; pause before confirming.', vi: 'Dung lam qua nhanh; tam dung truoc khi xac nhan.' }
+      }
+    ]
   },
   {
     id: 3,
@@ -216,6 +300,33 @@ export const lessons = [
       en: 'Advanced lesson for product confirmation, quantity, and payment communication.',
       vi: 'Bai hoc nang cao cho xac nhan san pham, so luong va thanh toan.'
     },
-    videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-15s.mp4'
+    videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-15s.mp4',
+    script: {
+      en: 'Order flow: confirm the product, show quantity clearly, then explain payment.',
+      vi: 'Quy trinh don hang: xac nhan san pham, hien thi so luong ro rang, sau do giai thich thanh toan.'
+    },
+    signs: [
+      {
+        label: { en: 'Confirm', vi: 'Xac nhan' },
+        handShape: { en: 'Thumb and index close together', vi: 'Ngon cai va ngon tro cham nhau' },
+        movement: { en: 'Tap the closed shape once, then nod.', vi: 'Cham dang tay mot lan roi gat dau.' },
+        cue: { en: 'Please confirm this item.', vi: 'Vui long xac nhan san pham nay.' },
+        mistake: { en: 'Keep the sign in the center, not beside the face.', vi: 'Giu ky hieu o giua khung, khong dua lech mat.' }
+      },
+      {
+        label: { en: 'Quantity', vi: 'So luong' },
+        handShape: { en: 'Number hand shape', vi: 'Dang tay bieu thi so' },
+        movement: { en: 'Hold the number steady for one full second.', vi: 'Giu so on dinh trong mot giay.' },
+        cue: { en: 'The quantity is two.', vi: 'So luong la hai.' },
+        mistake: { en: 'Avoid switching numbers too quickly.', vi: 'Khong doi so qua nhanh.' }
+      },
+      {
+        label: { en: 'Pay', vi: 'Thanh toan' },
+        handShape: { en: 'Flat hand taps opposite palm', vi: 'Ban tay phang cham vao long ban tay kia' },
+        movement: { en: 'Tap once, then gesture toward the counter.', vi: 'Cham mot lan roi huong ve quay.' },
+        cue: { en: 'You can pay at the counter.', vi: 'Quy khach co the thanh toan tai quay.' },
+        mistake: { en: 'Do not hide the tapping hand from the camera.', vi: 'Dung de tay cham bi che khoi camera.' }
+      }
+    ]
   }
 ];

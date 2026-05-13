@@ -16,6 +16,14 @@ function CourseCatalog({ t, lang, lessons, onOpenCourse, onStartLearning }) {
               <span>
                 {t.duration}: {lesson.durationMinutes} {t.minutes}
               </span>
+              <span>
+                {(lesson.signs || []).length} {t.signsCount}
+              </span>
+            </div>
+            <div className="lesson-signs">
+              {(lesson.signs || []).slice(0, 3).map((sign) => (
+                <span key={sign.label.en}>{sign.label[lang]}</span>
+              ))}
             </div>
             <div className="course-actions">
               <button className="action ghost" onClick={() => onOpenCourse(lesson.id)}>

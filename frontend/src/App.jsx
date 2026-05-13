@@ -230,7 +230,9 @@ function App() {
         />
 
         <StudioPanel
+          key={activeLessonId}
           t={t}
+          lang={lang}
           activeLesson={activeLesson}
           playbackRate={playbackRate}
           onPlaybackRateChange={setPlaybackRate}
@@ -336,8 +338,12 @@ function App() {
 
       <Topbar
         t={t}
+        lang={lang}
+        theme={theme}
         currentRoute={currentRoute}
         user={auth.user}
+        onLangChange={setLang}
+        onThemeChange={setTheme}
         onNavigate={navigate}
       />
 

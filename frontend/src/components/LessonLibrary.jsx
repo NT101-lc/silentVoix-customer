@@ -28,6 +28,11 @@ function LessonLibrary({ t, lang, lessons, activeLessonId, onLessonSelect }) {
                   {t.duration}: {lesson.durationMinutes} {t.minutes}
                 </span>
               </div>
+              <div className="lesson-signs">
+                {(lesson.signs || []).slice(0, 3).map((sign) => (
+                  <span key={sign.label.en}>{sign.label[lang]}</span>
+                ))}
+              </div>
             </button>
           );
         })}

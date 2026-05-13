@@ -25,11 +25,15 @@ function CourseDetail({ t, lang, lesson, onBackToCatalog, onStartLearning }) {
 
       <div className="detail-about">
         <h3>{t.whatYouLearn}</h3>
-        <ul>
-          <li>{t.learnBulletOne}</li>
-          <li>{t.learnBulletTwo}</li>
-          <li>{t.learnBulletThree}</li>
-        </ul>
+        <p>{lesson.script?.[lang]}</p>
+        <div className="detail-sign-grid">
+          {(lesson.signs || []).map((sign) => (
+            <article key={sign.label.en} className="sign-preview">
+              <span>{sign.label[lang]}</span>
+              <p>{sign.cue[lang]}</p>
+            </article>
+          ))}
+        </div>
       </div>
 
       <div className="course-actions">

@@ -1,4 +1,4 @@
-function Topbar({ t, currentRoute, user, onNavigate }) {
+function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeChange, onNavigate }) {
   const navItems = [
     { key: 'home', label: t.navHome, path: '/' },
     { key: 'courses', label: t.navCourses, path: '/courses' },
@@ -26,6 +26,16 @@ function Topbar({ t, currentRoute, user, onNavigate }) {
       </nav>
 
       <div className="controls">
+        <button
+          className="auth-link"
+          onClick={() => onThemeChange(theme === 'dark' ? 'light' : 'dark')}
+        >
+          {theme === 'dark' ? t.themeLight : t.themeDark}
+        </button>
+        <select value={lang} onChange={(event) => onLangChange(event.target.value)} className="lang-select">
+          <option value="en">English</option>
+          <option value="vi">Tieng Viet</option>
+        </select>
         <div className="auth-controls" aria-label={t.authNavAria}>
           {user ? (
             <button className="profile-icon-button" onClick={() => onNavigate('/settings')} title={t.navSettings}>
