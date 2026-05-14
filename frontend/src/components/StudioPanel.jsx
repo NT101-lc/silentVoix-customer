@@ -29,6 +29,12 @@ function StudioPanel({
   };
 
   const activePath = motionPaths[signs[activeSignIndex]?.label.en] || "M 0 0";
+  const handleSignKeyDown = (event, index) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setActiveSignIndex(index);
+    }
+  };
 
   return (
     <article className="studio" id="studio">
@@ -46,7 +52,7 @@ function StudioPanel({
             />
             
             {/* SVG Overlay for Motion Paths */}
-            <svg className="motion-overlay" viewBox="0 0 800 450">
+            <svg className="motion-overlay" viewBox="0 0 800 450" aria-hidden="true" focusable="false">
               <path 
                 className="motion-path animate" 
                 d={activePath} 
@@ -55,7 +61,11 @@ function StudioPanel({
 
             {/* Floating Controls */}
             <div className="player-controls" style={{ position: 'absolute', bottom: 12, right: 12, zIndex: 10 }}>
+              <label className="sr-only" htmlFor="lesson-playback-speed">
+                {t.playbackSpeedLabel}
+              </label>
               <select 
+                id="lesson-playback-speed"
                 className="lang-select"
                 value={playbackRate} 
                 onChange={(e) => onPlaybackRateChange(Number(e.target.value))}
@@ -77,10 +87,15 @@ function StudioPanel({
           </div>
 
           {signs.map((sign, index) => (
-            <div 
+            <article
               key={sign.label.en} 
               className={`sign-step-card ${index === activeSignIndex ? 'active' : ''}`}
               onClick={() => setActiveSignIndex(index)}
+              onKeyDown={(event) => handleSignKeyDown(event, index)}
+              role="button"
+              tabIndex={0}
+              aria-pressed={index === activeSignIndex}
+              aria-label={`${index === activeSignIndex ? t.selectedSignLabel : t.selectSignLabel}: ${sign.label[lang]}`}
             >
               <div className="sign-step-header">
                 <h4>{sign.label[lang]}</h4>
@@ -105,7 +120,7 @@ function StudioPanel({
                   </p>
                 </div>
               )}
-            </div>
+            </article>
           ))}
 
           {/* Camera Mini-View */}

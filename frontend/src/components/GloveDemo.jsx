@@ -262,7 +262,11 @@ function GloveDemo({ lang }) {
             <h2>{text.liveTitle}</h2>
             <p>{text.liveSub}</p>
           </div>
-          <div className={`prediction-card ${activePrediction.confidence > 90 ? 'success' : ''}`}>
+          <div
+            className={`prediction-card ${activePrediction.confidence > 90 ? 'success' : ''}`}
+            aria-live="polite"
+            aria-atomic="true"
+          >
             {activePrediction.confidence > 90 && (
               <>
                 <div className="success-badge">Perfect!</div>
@@ -315,7 +319,7 @@ function GloveDemo({ lang }) {
             <h2>{text.conversation}</h2>
             <p>{text.conversationSub}</p>
           </div>
-          <div className="conversation-list">
+          <div className="conversation-list" aria-live="polite">
             {messages.length ? (
               messages.map((message) => (
                 <div key={message.id} className="conversation-item">

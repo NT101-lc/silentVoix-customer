@@ -1,3 +1,5 @@
+import { visualAssets } from '../data/content';
+
 function Dashboard({ t, lang, lessons, completedCount, onContinueLesson }) {
   const progress = Math.round((completedCount / lessons.length) * 100);
 
@@ -8,20 +10,26 @@ function Dashboard({ t, lang, lessons, completedCount, onContinueLesson }) {
         <p>{t.dashboardSub}</p>
       </div>
 
-      <div className="progress-meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow={progress}>
+      <div
+        className="progress-meter"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow={progress}
+        aria-label={`${t.progressLabel}: ${progress}%`}
+      >
         <div className="progress-fill" style={{ width: `${progress}%` }} />
       </div>
       <p className="progress-label">{t.progressLabel}: {progress}%</p>
 
       <div className="course-grid">
         {lessons.map((lesson) => (
-          <article 
-            key={lesson.id} 
+          <article
+            key={lesson.id}
             className="course-card"
-            onClick={() => onContinueLesson(lesson.id)}
-            style={{ cursor: 'pointer' }}
           >
             <div className="course-thumbnail" style={{ aspectRatio: '2/1' }}>
+              <img className="course-image" src={visualAssets.lessons[lesson.id]} alt={t.courseImageAlt} />
               <div className="thumbnail-gradient" />
             </div>
             <div className="course-content">
@@ -30,13 +38,7 @@ function Dashboard({ t, lang, lessons, completedCount, onContinueLesson }) {
                 <div className="course-meta-inline">
                   <span>⏱️ {lesson.durationMinutes} {t.minutes}</span>
                 </div>
-                <button 
-                  className="action compact-action ghost" 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onContinueLesson(lesson.id);
-                  }}
-                >
+                <button className="action compact-action ghost" onClick={() => onContinueLesson(lesson.id)}>
                   {t.continueLabel}
                 </button>
               </div>

@@ -7,6 +7,7 @@ function AuthPage({ t, mode, onSubmit, onNavigate }) {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const errorId = `${mode}-form-error`;
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -29,44 +30,60 @@ function AuthPage({ t, mode, onSubmit, onNavigate }) {
         <p>{isLogin ? t.loginSub : t.signupSub}</p>
       </div>
 
-      <form className="auth-form" onSubmit={handleSubmit}>
+      <form className="auth-form" onSubmit={handleSubmit} aria-describedby={error ? errorId : undefined}>
         {!isLogin ? (
-          <label className="auth-label">
-            {t.authFullName}
+          <label className="auth-label" htmlFor={`${mode}-full-name`}>
+            <span>{t.authFullName}</span>
             <input
+              id={`${mode}-full-name`}
               type="text"
               value={fullName}
               onChange={(event) => setFullName(event.target.value)}
               placeholder={t.authFullNamePlaceholder}
               required
+              autoComplete="name"
+              aria-invalid={Boolean(error)}
+              aria-describedby={error ? errorId : undefined}
             />
           </label>
         ) : null}
 
-        <label className="auth-label">
-          {t.authEmail}
+        <label className="auth-label" htmlFor={`${mode}-email`}>
+          <span>{t.authEmail}</span>
           <input
+            id={`${mode}-email`}
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             placeholder="name@company.com"
             required
+            autoComplete="email"
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? errorId : undefined}
           />
         </label>
 
-        <label className="auth-label">
-          {t.authPassword}
+        <label className="auth-label" htmlFor={`${mode}-password`}>
+          <span>{t.authPassword}</span>
           <input
+            id={`${mode}-password`}
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             placeholder="********"
             required
             minLength={8}
+            autoComplete={isLogin ? 'current-password' : 'new-password'}
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? errorId : undefined}
           />
         </label>
 
-        {error ? <p className="auth-error">{error}</p> : null}
+        {error ? (
+          <p className="auth-error" id={errorId} role="alert">
+            {error}
+          </p>
+        ) : null}
 
         <button className="action" type="submit" disabled={loading}>
           {loading ? t.authLoading : isLogin ? t.loginCta : t.signupCta}

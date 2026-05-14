@@ -341,6 +341,9 @@ function App() {
 
   return (
     <div className={`app theme-${theme} lang-${lang}`} lang={lang}>
+      <a className="skip-link" href="#main-content">
+        {t.skipToContent}
+      </a>
       <div className="bg-glow bg-glow-top" />
       <div className="bg-glow bg-glow-bottom" />
 
@@ -355,7 +358,9 @@ function App() {
         onNavigate={navigate}
       />
 
-      {pageContent}
+      <main id="main-content" className="main-content" tabIndex={-1}>
+        {pageContent}
+      </main>
 
       <footer className="footer">{t.footer}</footer>
     </div>

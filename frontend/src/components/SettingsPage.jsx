@@ -3,6 +3,7 @@ import { useState } from 'react';
 function SettingsPage({ t, user, lang, theme, onLangChange, onThemeChange, onSave, onLogout }) {
   const [fullName, setFullName] = useState(user.fullName || '');
   const [avatarDataUrl, setAvatarDataUrl] = useState(user.avatarDataUrl || '');
+  const emailHelpId = 'settings-email-help';
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -41,9 +42,15 @@ function SettingsPage({ t, user, lang, theme, onLangChange, onThemeChange, onSav
             {avatarDataUrl ? <img src={avatarDataUrl} alt="" className="profile-avatar-image" /> : getInitials(fullName)}
           </span>
           <div className="settings-avatar-controls">
-            <label className="auth-link upload-button">
+            <label className="auth-link upload-button" htmlFor="settings-avatar-upload">
               {t.settingsUploadPhoto}
-              <input type="file" accept="image/*" onChange={handleAvatarChange} className="hidden-file-input" />
+              <input
+                id="settings-avatar-upload"
+                type="file"
+                accept="image/*"
+                onChange={handleAvatarChange}
+                className="hidden-file-input"
+              />
             </label>
             {avatarDataUrl ? (
               <button className="auth-link" type="button" onClick={() => setAvatarDataUrl('')}>
@@ -53,15 +60,29 @@ function SettingsPage({ t, user, lang, theme, onLangChange, onThemeChange, onSav
           </div>
         </div>
 
-        <label className="auth-label">
-          {t.authFullName}
-          <input type="text" value={fullName} onChange={(event) => setFullName(event.target.value)} required />
+        <label className="auth-label" htmlFor="settings-full-name">
+          <span>{t.authFullName}</span>
+          <input
+            id="settings-full-name"
+            type="text"
+            value={fullName}
+            onChange={(event) => setFullName(event.target.value)}
+            required
+            autoComplete="name"
+          />
         </label>
 
-        <label className="auth-label">
-          {t.authEmail}
-          <input type="email" value={user.email || ''} readOnly disabled />
-          <span className="auth-help">{t.settingsEmailLocked}</span>
+        <label className="auth-label" htmlFor="settings-email">
+          <span>{t.authEmail}</span>
+          <input
+            id="settings-email"
+            type="email"
+            value={user.email || ''}
+            readOnly
+            disabled
+            aria-describedby={emailHelpId}
+          />
+          <span className="auth-help" id={emailHelpId}>{t.settingsEmailLocked}</span>
         </label>
 
         <button className="action" type="submit">
@@ -71,19 +92,29 @@ function SettingsPage({ t, user, lang, theme, onLangChange, onThemeChange, onSav
 
       <div className="settings-section">
         <h3>{t.settingsAppearance}</h3>
-        <label className="auth-label">
-          {t.settingsTheme}
-          <select value={theme} onChange={(event) => onThemeChange(event.target.value)} className="lang-select">
+        <label className="auth-label" htmlFor="settings-theme">
+          <span>{t.settingsTheme}</span>
+          <select
+            id="settings-theme"
+            value={theme}
+            onChange={(event) => onThemeChange(event.target.value)}
+            className="lang-select"
+          >
             <option value="light">{t.themeLight}</option>
             <option value="dark">{t.themeDark}</option>
           </select>
         </label>
 
-        <label className="auth-label">
-          {t.settingsLanguage}
-          <select value={lang} onChange={(event) => onLangChange(event.target.value)} className="lang-select">
+        <label className="auth-label" htmlFor="settings-language">
+          <span>{t.settingsLanguage}</span>
+          <select
+            id="settings-language"
+            value={lang}
+            onChange={(event) => onLangChange(event.target.value)}
+            className="lang-select"
+          >
             <option value="en">English</option>
-            <option value="vi">Tieng Viet</option>
+            <option value="vi">Tiếng Việt</option>
           </select>
         </label>
       </div>

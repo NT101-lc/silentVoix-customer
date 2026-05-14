@@ -10,7 +10,7 @@ function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeChang
   return (
     <header className="topbar">
       <button className="brand brand-button" onClick={() => onNavigate('/')}>
-        <span className="brand-dot" />
+        <span className="brand-dot" aria-hidden="true" />
         {t.brand}
       </button>
 
@@ -20,6 +20,7 @@ function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeChang
             key={item.key}
             className={`nav-link ${currentRoute === item.key ? 'active' : ''}`}
             onClick={() => onNavigate(item.path)}
+            aria-current={currentRoute === item.key ? 'page' : undefined}
           >
             {item.label}
           </button>
@@ -30,16 +31,31 @@ function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeChang
         <button
           className="auth-link"
           onClick={() => onThemeChange(theme === 'dark' ? 'light' : 'dark')}
+          title={t.themeToggleLabel}
         >
           {theme === 'dark' ? t.themeLight : t.themeDark}
         </button>
-        <select value={lang} onChange={(event) => onLangChange(event.target.value)} className="lang-select">
+        <label className="sr-only" htmlFor="topbar-language">
+          {t.languageSelectLabel}
+        </label>
+        <select
+          id="topbar-language"
+          value={lang}
+          onChange={(event) => onLangChange(event.target.value)}
+          className="lang-select"
+          aria-label={t.languageSelectLabel}
+        >
           <option value="en">English</option>
-          <option value="vi">Tieng Viet</option>
+          <option value="vi">Tiếng Việt</option>
         </select>
         <div className="auth-controls" aria-label={t.authNavAria}>
           {user ? (
-            <button className="profile-icon-button" onClick={() => onNavigate('/settings')} title={t.navSettings}>
+            <button
+              className="profile-icon-button"
+              onClick={() => onNavigate('/settings')}
+              title={t.navSettings}
+              aria-label={t.profileSettingsLabel}
+            >
               <span className="profile-avatar" aria-hidden="true">
                 {user.avatarDataUrl ? (
                   <img src={user.avatarDataUrl} alt="" className="profile-avatar-image" />
@@ -53,12 +69,14 @@ function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeChang
               <button
                 className={`auth-link ${currentRoute === 'login' ? 'active' : ''}`}
                 onClick={() => onNavigate('/login')}
+                aria-current={currentRoute === 'login' ? 'page' : undefined}
               >
                 {t.navLogin}
               </button>
               <button
                 className={`auth-link ${currentRoute === 'signup' ? 'active' : ''}`}
                 onClick={() => onNavigate('/signup')}
+                aria-current={currentRoute === 'signup' ? 'page' : undefined}
               >
                 {t.navSignup}
               </button>

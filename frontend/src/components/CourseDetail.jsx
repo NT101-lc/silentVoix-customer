@@ -16,7 +16,7 @@ function CourseDetail({ t, lang, lesson, onBackToCatalog, onStartLearning }) {
   return (
     <section className="panel course-detail">
       <div className="course-detail-hero">
-        <img src={visualAssets.lessons[lesson.id]} alt="" />
+        <img src={visualAssets.lessons[lesson.id]} alt={t.courseImageAlt} />
         <div className="section-head">
           <h2>{lesson.title[lang]}</h2>
           <p>{lesson.description[lang]}</p>

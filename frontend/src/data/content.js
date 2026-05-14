@@ -13,6 +13,7 @@ export const copy = {
     mainNavAria: 'Main navigation',
     authNavAria: 'Authentication navigation',
     authWelcome: 'Welcome',
+    skipToContent: 'Skip to main content',
     heroTitle: 'Train Customer Sign Language With Confidence',
     heroSubtitle: 'Visual lessons, live practice, and glove-powered sign support for customer teams.',
     heroStatOne: 'Guided signs',
@@ -99,6 +100,14 @@ export const copy = {
     settingsUploadPhoto: 'Upload Photo',
     settingsRemovePhoto: 'Remove Photo',
     settingsEmailLocked: 'Email cannot be changed from settings.',
+    languageSelectLabel: 'Language',
+    themeToggleLabel: 'Switch color theme',
+    profileSettingsLabel: 'Open profile settings',
+    playbackSpeedLabel: 'Playback speed',
+    currentPageLabel: 'Current page',
+    selectSignLabel: 'Select sign',
+    selectedSignLabel: 'Selected sign',
+    courseImageAlt: 'Customer service sign-language practice session',
     footer: 'SilentVoix - sign glove, video lessons, and camera practice.'
   },
   vi: {
@@ -115,6 +124,7 @@ export const copy = {
     mainNavAria: 'Điều hướng chính',
     authNavAria: 'Điều hướng xác thực',
     authWelcome: 'Xin chào',
+    skipToContent: 'Bỏ qua đến nội dung chính',
     heroTitle: 'Luyện Sign Language Cho Chăm Sóc Khách Hàng',
     heroSubtitle: 'Bài học trực quan, luyện camera và hỗ trợ sign glove cho đội ngũ khách hàng.',
     heroStatOne: 'Sign hướng dẫn',
@@ -201,6 +211,14 @@ export const copy = {
     settingsUploadPhoto: 'Tải Ảnh',
     settingsRemovePhoto: 'Xóa Ảnh',
     settingsEmailLocked: 'Không thể đổi email trong cài đặt.',
+    languageSelectLabel: 'Ngôn ngữ',
+    themeToggleLabel: 'Đổi giao diện sáng tối',
+    profileSettingsLabel: 'Mở cài đặt hồ sơ',
+    playbackSpeedLabel: 'Tốc độ phát',
+    currentPageLabel: 'Trang hiện tại',
+    selectSignLabel: 'Chọn ký hiệu',
+    selectedSignLabel: 'Ký hiệu đang chọn',
+    courseImageAlt: 'Buổi luyện sign language cho chăm sóc khách hàng',
     footer: 'SilentVoix - sign glove, video bài học và luyện tập camera.'
   }
 };
