@@ -1,3 +1,5 @@
+import { visualAssets } from '../data/content';
+
 function CourseDetail({ t, lang, lesson, onBackToCatalog, onStartLearning }) {
   if (!lesson) {
     return (
@@ -13,9 +15,12 @@ function CourseDetail({ t, lang, lesson, onBackToCatalog, onStartLearning }) {
 
   return (
     <section className="panel course-detail">
-      <div className="section-head">
-        <h2>{lesson.title[lang]}</h2>
-        <p>{lesson.description[lang]}</p>
+      <div className="course-detail-hero">
+        <img src={visualAssets.lessons[lesson.id]} alt="" />
+        <div className="section-head">
+          <h2>{lesson.title[lang]}</h2>
+          <p>{lesson.description[lang]}</p>
+        </div>
       </div>
 
       <div className="detail-meta">

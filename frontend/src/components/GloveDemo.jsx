@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { visualAssets } from '../data/content';
 
 const predictionFlow = [
   {
@@ -45,17 +46,17 @@ const calibrationSteps = [
 const labels = {
   en: {
     title: 'Sign Glove AI Control Center',
-    sub: 'Competition demo for glove sensors, AI prediction, speech output, and data capture.',
+    sub: 'Glove sensors, AI prediction, speech output, and training data.',
     connected: 'Glove Connected',
     model: 'Model Ready',
     latency: 'Latency',
     samples: 'Training Samples',
     calibration: 'Glove Calibration',
-    calibrationSub: 'Create a quick user profile before running predictions.',
+    calibrationSub: 'Quick profile setup.',
     startCalibration: 'Start Calibration',
     calibrated: 'Calibrated',
     liveTitle: 'Live Prediction',
-    liveSub: 'Mock sensor stream shaped like the real glove pipeline.',
+    liveSub: 'Real-time sign output.',
     startLive: 'Start Live Demo',
     stopLive: 'Stop Live Demo',
     predictNext: 'Predict Next',
@@ -66,29 +67,29 @@ const labels = {
     listening: 'Listening',
     sensorTitle: 'Sensor Stream',
     conversation: 'Conversation Mode',
-    conversationSub: 'Detected signs become customer-service speech.',
+    conversationSub: 'Signs become spoken support.',
     noMessages: 'Predictions will appear here during the demo.',
     training: 'Collect Training Data',
-    trainingSub: 'Record mock samples to show how the model improves per user.',
+    trainingSub: 'Record samples per user.',
     label: 'Label',
     record: 'Record 3s Sample',
     coach: 'AI Coach Feedback',
     emergency: 'Service Shortcuts',
-    emergencySub: 'High-priority signs for real customer support.'
+    emergencySub: 'Fast customer support signs.'
   },
   vi: {
     title: 'Trung Tam AI Sign Glove',
-    sub: 'Demo thi cho cam bien gang tay, AI du doan, phat giong noi va thu du lieu.',
+    sub: 'Cam bien gang tay, AI du doan, phat giong noi va du lieu training.',
     connected: 'Gang Tay Da Ket Noi',
     model: 'Model San Sang',
     latency: 'Do tre',
     samples: 'Mau Training',
     calibration: 'Can Chinh Gang Tay',
-    calibrationSub: 'Tao nhanh ho so nguoi dung truoc khi du doan.',
+    calibrationSub: 'Tao nhanh ho so.',
     startCalibration: 'Bat Dau Can Chinh',
     calibrated: 'Da Can Chinh',
     liveTitle: 'Du Doan Truc Tiep',
-    liveSub: 'Sensor stream mock theo pipeline gang tay that.',
+    liveSub: 'Ket qua sign theo thoi gian thuc.',
     startLive: 'Chay Demo Live',
     stopLive: 'Dung Demo Live',
     predictNext: 'Du Doan Tiep',
@@ -99,15 +100,15 @@ const labels = {
     listening: 'Dang lang nghe',
     sensorTitle: 'Dong Cam Bien',
     conversation: 'Che Do Hoi Thoai',
-    conversationSub: 'Sign duoc nhan dien se thanh cau noi cham soc khach hang.',
+    conversationSub: 'Sign thanh cau noi ho tro.',
     noMessages: 'Cac du doan se hien o day khi demo.',
     training: 'Thu Du Lieu Training',
-    trainingSub: 'Ghi mau mock de cho thay model co the cai thien theo nguoi dung.',
+    trainingSub: 'Ghi mau theo tung nguoi dung.',
     label: 'Nhan',
     record: 'Ghi Mau 3s',
     coach: 'Phan Hoi AI Coach',
     emergency: 'Shortcut Dich Vu',
-    emergencySub: 'Cac sign uu tien cao cho ho tro khach hang.'
+    emergencySub: 'Sign nhanh cho ho tro khach.'
   }
 };
 
@@ -218,6 +219,11 @@ function GloveDemo({ lang }) {
           <span className="eyebrow">SilentVoix Hardware Demo</span>
           <h1>{text.title}</h1>
           <p>{text.sub}</p>
+        </div>
+        <div className="glove-product-shot" aria-hidden="true">
+          <img src={visualAssets.glove} alt="" />
+          <div className="glove-sensor-chip chip-one">Flex</div>
+          <div className="glove-sensor-chip chip-two">IMU</div>
         </div>
         <div className="glove-stats">
           <StatusCard label={text.connected} value="BLE-04" tone="online" />

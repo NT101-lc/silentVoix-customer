@@ -1,3 +1,5 @@
+import { visualAssets } from '../data/content';
+
 function CourseCatalog({ t, lang, lessons, onOpenCourse, onStartLearning }) {
   return (
     <section className="panel catalog">
@@ -9,9 +11,11 @@ function CourseCatalog({ t, lang, lessons, onOpenCourse, onStartLearning }) {
       <div className="course-grid">
         {lessons.map((lesson) => (
           <article key={lesson.id} className="course-card">
-            <span className="course-level">{lesson.level}</span>
+            <div className="course-image-wrap">
+              <img className="course-image" src={visualAssets.lessons[lesson.id]} alt="" />
+              <span className="course-level">{lesson.level}</span>
+            </div>
             <h3>{lesson.title[lang]}</h3>
-            <p>{lesson.description[lang]}</p>
             <div className="course-meta">
               <span>
                 {t.duration}: {lesson.durationMinutes} {t.minutes}

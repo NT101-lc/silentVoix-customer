@@ -14,22 +14,21 @@ export const copy = {
     authNavAria: 'Authentication navigation',
     authWelcome: 'Welcome',
     heroTitle: 'Train Customer Sign Language With Confidence',
-    heroSubtitle:
-      'A modern practice space for customer teams to learn sign language with guided lessons and live camera feedback.',
-    heroStatOne: 'Hands-on lessons',
-    heroStatTwo: 'EN / VI learning mode',
-    heroStatThree: 'Live mirror camera practice',
+    heroSubtitle: 'Visual lessons, live practice, and glove-powered sign support for customer teams.',
+    heroStatOne: 'Guided signs',
+    heroStatTwo: 'EN / VI',
+    heroStatThree: 'Live camera',
     catalogTitle: 'Course Catalog',
-    catalogSub: 'Browse practical sign-language paths for customer-facing teams.',
+    catalogSub: 'Pick a visual practice path.',
     viewCourse: 'View Course',
     startLearning: 'Start Learning',
     lessonsTitle: 'Lesson Library',
-    lessonsSub: 'Start with essentials for real customer conversations.',
+    lessonsSub: 'Choose a lesson.',
     level: 'Level',
     duration: 'Duration',
     minutes: 'min',
     studioTitle: 'Practice Studio',
-    studioSub: 'Watch the lesson and mirror the signs in your camera.',
+    studioSub: 'Watch, mirror, repeat.',
     lessonVideo: 'Lesson Video',
     speed: 'Speed',
     cameraTitle: 'Your Camera',
@@ -40,7 +39,7 @@ export const copy = {
     exitProjector: 'Exit Projector',
     lessonScript: 'Lesson Script',
     signGuideTitle: 'Hand Sign Coach',
-    signGuideSub: 'Learn the shape, motion, and customer phrase before practicing.',
+    signGuideSub: 'Shape, motion, phrase.',
     handShape: 'Hand Shape',
     movement: 'Movement',
     practiceCue: 'Practice Cue',
@@ -100,7 +99,7 @@ export const copy = {
     settingsUploadPhoto: 'Upload Photo',
     settingsRemovePhoto: 'Remove Photo',
     settingsEmailLocked: 'Email cannot be changed from settings.',
-    footer: 'SilentVoix demo - Video lessons, guided hand signs, and camera practice.'
+    footer: 'SilentVoix - sign glove, video lessons, and camera practice.'
   },
   vi: {
     brand: 'SilentVoix',
@@ -117,22 +116,21 @@ export const copy = {
     authNavAria: 'Dieu huong xac thuc',
     authWelcome: 'Xin chao',
     heroTitle: 'Luyen Sign Language Cho Cham Soc Khach Hang',
-    heroSubtitle:
-      'Khong gian hoc hien dai cho doi ngu khach hang voi bai hoc huong dan va camera thuc hanh truc tiep.',
-    heroStatOne: 'Bai hoc thuc hanh',
-    heroStatTwo: 'Che do EN / VI',
-    heroStatThree: 'Tap voi camera guong',
+    heroSubtitle: 'Bai hoc truc quan, luyen camera va ho tro sign glove cho doi ngu khach hang.',
+    heroStatOne: 'Sign huong dan',
+    heroStatTwo: 'EN / VI',
+    heroStatThree: 'Camera live',
     catalogTitle: 'Danh Sach Khoa Hoc',
-    catalogSub: 'Chon lo trinh sign language cho doi ngu cham soc khach hang.',
+    catalogSub: 'Chon lo trinh truc quan.',
     viewCourse: 'Xem Khoa Hoc',
     startLearning: 'Bat Dau Hoc',
     lessonsTitle: 'Thu Vien Bai Hoc',
-    lessonsSub: 'Bat dau voi cac tinh huong giao tiep khach hang co ban.',
+    lessonsSub: 'Chon bai hoc.',
     level: 'Cap do',
     duration: 'Thoi luong',
     minutes: 'phut',
     studioTitle: 'Phong Tap',
-    studioSub: 'Xem video bai hoc va tap theo bang camera cua ban.',
+    studioSub: 'Xem, tap theo, lap lai.',
     lessonVideo: 'Video Bai Hoc',
     speed: 'Toc do',
     cameraTitle: 'Camera Cua Ban',
@@ -143,7 +141,7 @@ export const copy = {
     exitProjector: 'Thoat Chieu Lon',
     lessonScript: 'Kich Ban Bai Hoc',
     signGuideTitle: 'Huong Dan Hand Sign',
-    signGuideSub: 'Hoc dang tay, chuyen dong va cau noi voi khach truoc khi thuc hanh.',
+    signGuideSub: 'Dang tay, chuyen dong, cau noi.',
     handShape: 'Dang tay',
     movement: 'Chuyen dong',
     practiceCue: 'Cau luyen tap',
@@ -203,7 +201,19 @@ export const copy = {
     settingsUploadPhoto: 'Tai Anh',
     settingsRemovePhoto: 'Xoa Anh',
     settingsEmailLocked: 'Khong the doi email trong cai dat.',
-    footer: 'SilentVoix demo - Video bai hoc, huong dan hand sign va luyen tap camera.'
+    footer: 'SilentVoix - sign glove, video bai hoc va luyen tap camera.'
+  }
+};
+
+export const visualAssets = {
+  hero:
+    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80',
+  glove:
+    'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=1200&q=80',
+  lessons: {
+    1: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80',
+    2: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80',
+    3: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=900&q=80'
   }
 };
 

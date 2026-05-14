@@ -1,3 +1,5 @@
+import { visualAssets } from '../data/content';
+
 function Hero({ t }) {
   return (
     <section className="hero">
@@ -12,6 +14,7 @@ function Hero({ t }) {
       </div>
 
       <div className="hero-visual" aria-hidden="true">
+        <img className="hero-photo" src={visualAssets.hero} alt="" />
         <div className="hero-screen">
           <div className="hero-video-bar" />
           <div className="hero-hand-card primary">
