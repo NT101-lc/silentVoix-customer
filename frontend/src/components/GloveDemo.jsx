@@ -262,7 +262,13 @@ function GloveDemo({ lang }) {
             <h2>{text.liveTitle}</h2>
             <p>{text.liveSub}</p>
           </div>
-          <div className="prediction-card">
+          <div className={`prediction-card ${activePrediction.confidence > 90 ? 'success' : ''}`}>
+            {activePrediction.confidence > 90 && (
+              <>
+                <div className="success-badge">Perfect!</div>
+                <div className="success-glow" />
+              </>
+            )}
             <span className="model-state">{text.modelState}: {isLive ? text.listening : 'Idle'}</span>
             <strong>{activePrediction.sign[lang]}</strong>
             <p>{activePrediction.phrase[lang]}</p>

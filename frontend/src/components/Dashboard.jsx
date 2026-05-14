@@ -13,16 +13,34 @@ function Dashboard({ t, lang, lessons, completedCount, onContinueLesson }) {
       </div>
       <p className="progress-label">{t.progressLabel}: {progress}%</p>
 
-      <div className="course-grid compact">
+      <div className="course-grid">
         {lessons.map((lesson) => (
-          <article key={lesson.id} className="course-card compact">
-            <h3>{lesson.title[lang]}</h3>
-            <p>
-              {t.duration}: {lesson.durationMinutes} {t.minutes}
-            </p>
-            <button className="action ghost" onClick={() => onContinueLesson(lesson.id)}>
-              {t.continueLabel}
-            </button>
+          <article 
+            key={lesson.id} 
+            className="course-card"
+            onClick={() => onContinueLesson(lesson.id)}
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="course-thumbnail" style={{ aspectRatio: '2/1' }}>
+              <div className="thumbnail-gradient" />
+            </div>
+            <div className="course-content">
+              <h3>{lesson.title[lang]}</h3>
+              <div className="course-footer">
+                <div className="course-meta-inline">
+                  <span>⏱️ {lesson.durationMinutes} {t.minutes}</span>
+                </div>
+                <button 
+                  className="action compact-action ghost" 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onContinueLesson(lesson.id);
+                  }}
+                >
+                  {t.continueLabel}
+                </button>
+              </div>
+            </div>
           </article>
         ))}
       </div>

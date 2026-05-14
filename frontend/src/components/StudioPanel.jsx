@@ -13,129 +13,117 @@ function StudioPanel({
   onDisableCamera
 }) {
   const [activeSignIndex, setActiveSignIndex] = useState(0);
-  const [projectorMode, setProjectorMode] = useState(false);
   const signs = useMemo(() => activeLesson.signs || [], [activeLesson.signs]);
-  const activeSign = signs[activeSignIndex] || signs[0];
+
+  // Mock Motion Paths for Phase #3
+  const motionPaths = {
+    'Hello': "M 300 200 Q 400 150 500 200",
+    'Welcome': "M 200 300 Q 400 350 600 300",
+    'Thank You': "M 400 100 L 400 300",
+    'Need': "M 400 200 L 400 350",
+    'Question': "M 400 150 Q 500 150 500 250 T 400 350",
+    'Understand': "M 400 100 Q 450 150 400 200",
+    'Confirm': "M 400 250 L 400 250",
+    'Quantity': "M 400 250 L 400 250",
+    'Pay': "M 300 350 L 500 350"
+  };
+
+  const activePath = motionPaths[signs[activeSignIndex]?.label.en] || "M 0 0";
 
   return (
-    <article className={`panel studio ${projectorMode ? 'projector-mode' : ''}`} id="studio">
-      <div className="section-head">
-        <h2>{t.studioTitle}</h2>
-        <p>{t.studioSub}</p>
-      </div>
+    <article className="studio" id="studio">
+      <div className="studio-main">
+        {/* Fixed Viewport Section (#3 Motion Paths) */}
+        <section className="viewport-card">
+          <div className="video-overlay-container">
+            <video 
+              key={activeLesson.id} 
+              ref={lessonVideoRef} 
+              src={activeLesson.videoUrl} 
+              autoPlay 
+              loop 
+              muted 
+            />
+            
+            {/* SVG Overlay for Motion Paths */}
+            <svg className="motion-overlay" viewBox="0 0 800 450">
+              <path 
+                className="motion-path animate" 
+                d={activePath} 
+              />
+            </svg>
 
-      <div className="lesson-script">
-        <span>{t.lessonScript}</span>
-        <p>{activeLesson.script?.[lang]}</p>
-      </div>
-
-      <div className="studio-grid">
-        <div className="video-card lesson-player">
-          <div className="card-head">
-            <h3>{t.lessonVideo}</h3>
-            <div className="player-controls">
-              <label className="speed">
-                {t.speed}
-                <select value={playbackRate} onChange={(event) => onPlaybackRateChange(Number(event.target.value))}>
-                  <option value={0.5}>0.5x</option>
-                  <option value={0.75}>0.75x</option>
-                  <option value={1}>1.0x</option>
-                  <option value={1.25}>1.25x</option>
-                  <option value={1.5}>1.5x</option>
-                </select>
-              </label>
-              <button className="action ghost compact-action" onClick={() => setProjectorMode((value) => !value)}>
-                {projectorMode ? t.exitProjector : t.projectorMode}
-              </button>
-            </div>
-          </div>
-          <video key={activeLesson.id} ref={lessonVideoRef} className="media" controls src={activeLesson.videoUrl} />
-        </div>
-
-        <div className="video-card camera-card">
-          <div className="card-head">
-            <h3>{t.cameraTitle}</h3>
-          </div>
-          <video ref={cameraRef} className="media mirror" autoPlay muted playsInline />
-          <p className="camera-help">{t.cameraHelp}</p>
-          {cameraEnabled ? (
-            <button className="action danger" onClick={onDisableCamera}>
-              {t.cameraOff}
-            </button>
-          ) : (
-            <button className="action" onClick={onEnableCamera}>
-              {t.cameraOn}
-            </button>
-          )}
-        </div>
-      </div>
-
-      {activeSign ? (
-        <section className="sign-coach" aria-labelledby="sign-coach-title">
-          <div className="section-head sign-coach-head">
-            <div>
-              <h2 id="sign-coach-title">{t.signGuideTitle}</h2>
-              <p>{t.signGuideSub}</p>
-            </div>
-            <div className="sign-tabs" role="tablist" aria-label={t.signGuideTitle}>
-              {signs.map((sign, index) => (
-                <button
-                  key={sign.label.en}
-                  className={`sign-tab ${index === activeSignIndex ? 'active' : ''}`}
-                  onClick={() => setActiveSignIndex(index)}
-                  role="tab"
-                  aria-selected={index === activeSignIndex}
-                >
-                  {sign.label[lang]}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="sign-detail">
-            <div className="hand-visual" aria-hidden="true">
-              <span className="hand-badge">{activeSign.label[lang]}</span>
-              <div className="palm-shape">
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="motion-line" />
-            </div>
-
-            <div className="sign-instructions">
-              <div>
-                <span>{t.handShape}</span>
-                <p>{activeSign.handShape[lang]}</p>
-              </div>
-              <div>
-                <span>{t.movement}</span>
-                <p>{activeSign.movement[lang]}</p>
-              </div>
-              <div>
-                <span>{t.practiceCue}</span>
-                <p>{activeSign.cue[lang]}</p>
-              </div>
-              <div>
-                <span>{t.commonMistake}</span>
-                <p>{activeSign.mistake[lang]}</p>
-              </div>
+            {/* Floating Controls */}
+            <div className="player-controls" style={{ position: 'absolute', bottom: 12, right: 12, zIndex: 10 }}>
+              <select 
+                className="lang-select"
+                value={playbackRate} 
+                onChange={(e) => onPlaybackRateChange(Number(e.target.value))}
+                style={{ background: 'rgba(0,0,0,0.6)', border: '0', color: 'white' }}
+              >
+                <option value={0.5}>0.5x Slow</option>
+                <option value={0.75}>0.75x</option>
+                <option value={1}>1.0x Normal</option>
+              </select>
             </div>
           </div>
         </section>
-      ) : null}
 
-      <div className="tips" id="progress">
-        <h3>{t.tipsTitle}</h3>
-        <ul className="drill-list">
-          <li>{t.drillWatch}</li>
-          <li>{t.drillLearn}</li>
-          <li>{t.drillMirror}</li>
-          <li>{t.drillRepeat}</li>
-          <li>{t.tip1}</li>
-        </ul>
+        {/* Sign-Along Scroll (#2 Scroll Experience) */}
+        <section className="sign-scroll-container">
+          <div className="section-head">
+            <h2>{activeLesson.title[lang]}</h2>
+            <p>{t.studioSub}</p>
+          </div>
+
+          {signs.map((sign, index) => (
+            <div 
+              key={sign.label.en} 
+              className={`sign-step-card ${index === activeSignIndex ? 'active' : ''}`}
+              onClick={() => setActiveSignIndex(index)}
+            >
+              <div className="sign-step-header">
+                <h4>{sign.label[lang]}</h4>
+                <div className="course-badge" style={{ position: 'static' }}>Step {index + 1}</div>
+              </div>
+              
+              <div className="visual-instruction">
+                <div className="visual-instruction-item">
+                  <span>{t.handShape}</span>
+                  <p>{sign.handShape[lang]}</p>
+                </div>
+                <div className="visual-instruction-item">
+                  <span>{t.movement}</span>
+                  <p>{sign.movement[lang]}</p>
+                </div>
+              </div>
+
+              {index === activeSignIndex && (
+                <div className="drill-list" style={{ marginTop: 12, borderTop: '1px solid var(--line)', paddingTop: 12 }}>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--accent-strong)', fontWeight: 700 }}>
+                    Coach Tip: {sign.mistake[lang]}
+                  </p>
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* Camera Mini-View */}
+          <div className="camera-mini-card">
+            <video ref={cameraRef} autoPlay muted playsInline className="mirror" />
+            <div className="camera-mini-content">
+              <h5>{t.cameraTitle}</h5>
+              <p>{t.cameraHelp}</p>
+              <button 
+                className={`action compact-action ${cameraEnabled ? 'danger' : ''}`}
+                onClick={cameraEnabled ? onDisableCamera : onEnableCamera}
+                style={{ marginTop: 8, width: '100%' }}
+              >
+                {cameraEnabled ? t.cameraOff : t.cameraOn}
+              </button>
+            </div>
+          </div>
+        </section>
       </div>
     </article>
   );
