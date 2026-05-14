@@ -14,24 +14,27 @@ PERN full-stack app for sign language learning with:
 
 ## Project Structure
 
-- `client/` - React app
-- `server/` - Express API
+- `frontend/` - React app
+- `backend/` - Express API
 
 ## Quick Start
 
 ### 1) Database
 
-Create a PostgreSQL database, for example `silentvoix`.
+Start PostgreSQL with Docker Compose:
+
+```bash
+docker compose up -d
+```
+
+Compose only starts the database. It creates the `silentvoix` database and loads `backend/src/db/schema.sql` on first initialization.
 
 ### 2) Backend setup
 
 ```bash
-cd server
+cd backend
 cp .env.example .env
-# update DB config in .env
 npm install
-npm run db:migrate
-npm run db:seed
 npm run dev
 ```
 
@@ -40,7 +43,7 @@ Backend runs at `http://localhost:4000`.
 ### 3) Frontend setup
 
 ```bash
-cd client
+cd frontend
 cp .env.example .env
 npm install
 npm run dev
@@ -73,23 +76,14 @@ Frontend runs at `http://localhost:5173`.
 
 ## Docker
 
-Build and run with Docker Compose:
+Docker Compose is used only for PostgreSQL:
 
 ```bash
-docker compose up --build -d
+docker compose up -d
 ```
-
-App will be available at `http://localhost:8080`.
 
 Stop containers:
 
 ```bash
 docker compose down
-```
-
-Or build/run directly with Docker:
-
-```bash
-docker build -t silentvoix-customer-frontend ./frontend
-docker run --rm -p 8080:80 silentvoix-customer-frontend
 ```
