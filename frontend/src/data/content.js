@@ -103,105 +103,105 @@ export const copy = {
   },
   vi: {
     brand: 'SilentVoix',
-    navHome: 'Trang chu',
-    navCourses: 'Khoa hoc',
-    navLearn: 'Hoc',
+    navHome: 'Trang chủ',
+    navCourses: 'Khóa học',
+    navLearn: 'Học',
     navGlove: 'Glove AI',
-    navDashboard: 'Bang dieu khien',
-    navSettings: 'Cai dat',
-    navLogin: 'Dang nhap',
-    navSignup: 'Dang ky',
-    navLogout: 'Dang xuat',
-    mainNavAria: 'Dieu huong chinh',
-    authNavAria: 'Dieu huong xac thuc',
-    authWelcome: 'Xin chao',
-    heroTitle: 'Luyen Sign Language Cho Cham Soc Khach Hang',
-    heroSubtitle: 'Bai hoc truc quan, luyen camera va ho tro sign glove cho doi ngu khach hang.',
-    heroStatOne: 'Sign huong dan',
+    navDashboard: 'Bảng điều khiển',
+    navSettings: 'Cài đặt',
+    navLogin: 'Đăng nhập',
+    navSignup: 'Đăng ký',
+    navLogout: 'Đăng xuất',
+    mainNavAria: 'Điều hướng chính',
+    authNavAria: 'Điều hướng xác thực',
+    authWelcome: 'Xin chào',
+    heroTitle: 'Luyện Sign Language Cho Chăm Sóc Khách Hàng',
+    heroSubtitle: 'Bài học trực quan, luyện camera và hỗ trợ sign glove cho đội ngũ khách hàng.',
+    heroStatOne: 'Sign hướng dẫn',
     heroStatTwo: 'EN / VI',
     heroStatThree: 'Camera live',
-    catalogTitle: 'Danh Sach Khoa Hoc',
-    catalogSub: 'Chon lo trinh truc quan.',
-    viewCourse: 'Xem Khoa Hoc',
-    startLearning: 'Bat Dau Hoc',
-    lessonsTitle: 'Thu Vien Bai Hoc',
-    lessonsSub: 'Chon bai hoc.',
-    level: 'Cap do',
-    duration: 'Thoi luong',
-    minutes: 'phut',
-    studioTitle: 'Phong Tap',
-    studioSub: 'Xem, tap theo, lap lai.',
-    lessonVideo: 'Video Bai Hoc',
-    speed: 'Toc do',
-    cameraTitle: 'Camera Cua Ban',
-    cameraHelp: 'Cho phep camera va giu ro tay + khuon mat trong khung.',
-    cameraOn: 'Bat Camera',
-    cameraOff: 'Tat Camera',
-    projectorMode: 'Chieu Lon',
-    exitProjector: 'Thoat Chieu Lon',
-    lessonScript: 'Kich Ban Bai Hoc',
-    signGuideTitle: 'Huong Dan Hand Sign',
-    signGuideSub: 'Dang tay, chuyen dong, cau noi.',
-    handShape: 'Dang tay',
-    movement: 'Chuyen dong',
-    practiceCue: 'Cau luyen tap',
-    commonMistake: 'Loi thuong gap',
-    drillTitle: 'Bai luyen',
-    drillWatch: 'Xem video giao vien mot lan.',
-    drillLearn: 'Hoc tung the ky hieu ben duoi.',
-    drillMirror: 'Bat camera va tap theo nhu guong.',
-    drillRepeat: 'Lap lai 3 lan o toc do cham.',
-    signsCount: 'ky hieu',
-    themeLight: 'Sang',
-    themeDark: 'Toi',
-    tipsTitle: 'Meo Luyen Tap',
-    tip1: 'Giup thay ro dong tac bang cach de lo phan vai.',
-    tip2: 'Tap cham truoc, sau do moi tang toc do video.',
-    tip3: 'Dung tam dung de so sanh dang tay voi giao vien.',
-    whatYouLearn: 'Ban se hoc duoc gi',
-    learnBulletOne: 'Mau ky hieu chao hoi, ho tro va xac nhan thong tin.',
-    learnBulletTwo: 'Nhip ky hieu ro rang khi giao tiep voi khach.',
-    learnBulletThree: 'Cach dieu chinh dang tay va khung hinh thuc hanh.',
-    markAsDone: 'Danh Dau Da Hoc',
-    toDashboard: 'Den Bang Dieu Khien',
-    dashboardTitle: 'Bang Dieu Khien Hoc Tap',
-    dashboardSub: 'Theo doi tien do va tiep tuc bai hoc dang do.',
-    progressLabel: 'Tien do',
-    continueLabel: 'Hoc Tiep',
-    backToCourses: 'Quay Lai Khoa Hoc',
-    courseNotFoundTitle: 'Khong tim thay khoa hoc',
-    courseNotFoundSub: 'Lien ket khoa hoc khong hop le hoac da bi xoa.',
-    notFoundTitle: 'Khong tim thay trang',
-    notFoundSub: 'Duong dan nay khong ton tai trong ung dung.',
-    backHome: 'Ve Trang Chu',
-    loginTitle: 'Dang nhap vao SilentVoix',
-    loginSub: 'Tiep tuc bai hoc va theo doi tien do cua ban.',
-    signupTitle: 'Tao tai khoan moi',
-    signupSub: 'Dang ky tai khoan hoc vien cho nen tang luyen tap sign language.',
-    loginCta: 'Dang Nhap',
-    signupCta: 'Dang Ky',
-    toSignup: 'Chua co tai khoan? Dang ky',
-    toLogin: 'Da co tai khoan? Dang nhap',
-    authFullName: 'Ho va ten',
-    authFullNamePlaceholder: 'Nhap ho va ten',
+    catalogTitle: 'Danh Sách Khóa Học',
+    catalogSub: 'Chọn lộ trình trực quan.',
+    viewCourse: 'Xem Khóa Học',
+    startLearning: 'Bắt Đầu Học',
+    lessonsTitle: 'Thư Viện Bài Học',
+    lessonsSub: 'Chọn bài học.',
+    level: 'Cấp độ',
+    duration: 'Thời lượng',
+    minutes: 'phút',
+    studioTitle: 'Phòng Tập',
+    studioSub: 'Xem, tập theo, lặp lại.',
+    lessonVideo: 'Video Bài Học',
+    speed: 'Tốc độ',
+    cameraTitle: 'Camera Của Bạn',
+    cameraHelp: 'Cho phép camera và giữ rõ tay + khuôn mặt trong khung.',
+    cameraOn: 'Bật Camera',
+    cameraOff: 'Tắt Camera',
+    projectorMode: 'Chiếu Lớn',
+    exitProjector: 'Thoát Chiếu Lớn',
+    lessonScript: 'Kịch Bản Bài Học',
+    signGuideTitle: 'Hướng Dẫn Hand Sign',
+    signGuideSub: 'Dáng tay, chuyển động, câu nói.',
+    handShape: 'Dáng tay',
+    movement: 'Chuyển động',
+    practiceCue: 'Câu luyện tập',
+    commonMistake: 'Lỗi thường gặp',
+    drillTitle: 'Bài luyện',
+    drillWatch: 'Xem video giáo viên một lần.',
+    drillLearn: 'Học từng thẻ ký hiệu bên dưới.',
+    drillMirror: 'Bật camera và tập theo như gương.',
+    drillRepeat: 'Lặp lại 3 lần ở tốc độ chậm.',
+    signsCount: 'ký hiệu',
+    themeLight: 'Sáng',
+    themeDark: 'Tối',
+    tipsTitle: 'Mẹo Luyện Tập',
+    tip1: 'Giúp thấy rõ động tác bằng cách để lộ phần vai.',
+    tip2: 'Tập chậm trước, sau đó mới tăng tốc độ video.',
+    tip3: 'Dùng tạm dừng để so sánh dáng tay với giáo viên.',
+    whatYouLearn: 'Bạn sẽ học được gì',
+    learnBulletOne: 'Mẫu ký hiệu chào hỏi, hỗ trợ và xác nhận thông tin.',
+    learnBulletTwo: 'Nhịp ký hiệu rõ ràng khi giao tiếp với khách.',
+    learnBulletThree: 'Cách điều chỉnh dáng tay và khung hình thực hành.',
+    markAsDone: 'Đánh Dấu Đã Học',
+    toDashboard: 'Đến Bảng Điều Khiển',
+    dashboardTitle: 'Bảng Điều Khiển Học Tập',
+    dashboardSub: 'Theo dõi tiến độ và tiếp tục bài học đang dở.',
+    progressLabel: 'Tiến độ',
+    continueLabel: 'Học Tiếp',
+    backToCourses: 'Quay Lại Khóa Học',
+    courseNotFoundTitle: 'Không tìm thấy khóa học',
+    courseNotFoundSub: 'Liên kết khóa học không hợp lệ hoặc đã bị xóa.',
+    notFoundTitle: 'Không tìm thấy trang',
+    notFoundSub: 'Đường dẫn này không tồn tại trong ứng dụng.',
+    backHome: 'Về Trang Chủ',
+    loginTitle: 'Đăng nhập vào SilentVoix',
+    loginSub: 'Tiếp tục bài học và theo dõi tiến độ của bạn.',
+    signupTitle: 'Tạo tài khoản mới',
+    signupSub: 'Đăng ký tài khoản học viên cho nền tảng luyện tập sign language.',
+    loginCta: 'Đăng Nhập',
+    signupCta: 'Đăng Ký',
+    toSignup: 'Chưa có tài khoản? Đăng ký',
+    toLogin: 'Đã có tài khoản? Đăng nhập',
+    authFullName: 'Họ và tên',
+    authFullNamePlaceholder: 'Nhập họ và tên',
     authEmail: 'Email',
-    authPassword: 'Mat khau',
-    authLoading: 'Dang xu ly...',
-    authUnknownError: 'Xac thuc that bai. Vui long thu lai.',
-    authRequiredTitle: 'Can dang nhap',
-    authRequiredSub: 'Vui long dang nhap de truy cap bang dieu khien.',
-    goToLogin: 'Den Trang Dang Nhap',
-    settingsTitle: 'Cai Dat Nguoi Dung',
-    settingsSub: 'Cap nhat thong tin ho so cho tai khoan cua ban.',
-    settingsSave: 'Luu Cai Dat',
-    settingsAppearance: 'Giao Dien',
-    settingsTheme: 'Che do',
-    settingsLanguage: 'Ngon ngu',
-    settingsAccount: 'Tai khoan',
-    settingsUploadPhoto: 'Tai Anh',
-    settingsRemovePhoto: 'Xoa Anh',
-    settingsEmailLocked: 'Khong the doi email trong cai dat.',
-    footer: 'SilentVoix - sign glove, video bai hoc va luyen tap camera.'
+    authPassword: 'Mật khẩu',
+    authLoading: 'Đang xử lý...',
+    authUnknownError: 'Xác thực thất bại. Vui lòng thử lại.',
+    authRequiredTitle: 'Cần đăng nhập',
+    authRequiredSub: 'Vui lòng đăng nhập để truy cập bảng điều khiển.',
+    goToLogin: 'Đến Trang Đăng Nhập',
+    settingsTitle: 'Cài Đặt Người Dùng',
+    settingsSub: 'Cập nhật thông tin hồ sơ cho tài khoản của bạn.',
+    settingsSave: 'Lưu Cài Đặt',
+    settingsAppearance: 'Giao Diện',
+    settingsTheme: 'Chế độ',
+    settingsLanguage: 'Ngôn ngữ',
+    settingsAccount: 'Tài khoản',
+    settingsUploadPhoto: 'Tải Ảnh',
+    settingsRemovePhoto: 'Xóa Ảnh',
+    settingsEmailLocked: 'Không thể đổi email trong cài đặt.',
+    footer: 'SilentVoix - sign glove, video bài học và luyện tập camera.'
   }
 };
 
@@ -224,38 +224,38 @@ export const lessons = [
     durationMinutes: 8,
     title: {
       en: 'Greeting Customers',
-      vi: 'Chao Hoi Khach Hang'
+      vi: 'Chào Hỏi Khách Hàng'
     },
     description: {
       en: 'Learn hello, welcome, and thank you signs for front-desk interactions.',
-      vi: 'Hoc cac ky hieu xin chao, chao mung va cam on cho quay tiep tan.'
+      vi: 'Học các ký hiệu xin chào, chào mừng và cảm ơn cho quầy tiếp tân.'
     },
     videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-5s.mp4',
     script: {
       en: 'Reception flow: greet the customer, invite them in, then close with thanks.',
-      vi: 'Quy trinh tiep tan: chao khach, moi khach vao, sau do ket thuc bang loi cam on.'
+      vi: 'Quy trình tiếp tân: chào khách, mời khách vào, sau đó kết thúc bằng lời cảm ơn.'
     },
     signs: [
       {
-        label: { en: 'Hello', vi: 'Xin chao' },
-        handShape: { en: 'Open palm near temple', vi: 'Long ban tay mo gan thai duong' },
-        movement: { en: 'Move the palm outward with relaxed fingers.', vi: 'Dua ban tay ra ngoai, ngon tay tha long.' },
-        cue: { en: 'Hello, welcome to SilentVoix.', vi: 'Xin chao, chao mung den SilentVoix.' },
-        mistake: { en: 'Do not cover the eyes or drop the wrist.', vi: 'Dung che mat hoac ha co tay qua thap.' }
+        label: { en: 'Hello', vi: 'Xin chào' },
+        handShape: { en: 'Open palm near temple', vi: 'Lòng bàn tay mở gần thái dương' },
+        movement: { en: 'Move the palm outward with relaxed fingers.', vi: 'Đưa bàn tay ra ngoài, ngón tay thả lỏng.' },
+        cue: { en: 'Hello, welcome to SilentVoix.', vi: 'Xin chào, chào mừng đến SilentVoix.' },
+        mistake: { en: 'Do not cover the eyes or drop the wrist.', vi: 'Đừng che mắt hoặc hạ cổ tay quá thấp.' }
       },
       {
-        label: { en: 'Welcome', vi: 'Chao mung' },
-        handShape: { en: 'Both hands open at chest level', vi: 'Hai ban tay mo ngang nguc' },
-        movement: { en: 'Pull both hands gently toward your body.', vi: 'Keo nhe hai tay ve phia minh.' },
-        cue: { en: 'Welcome, how can I help?', vi: 'Chao mung, toi co the ho tro gi?' },
-        mistake: { en: 'Keep elbows visible inside the camera frame.', vi: 'Giu khuyu tay nam trong khung camera.' }
+        label: { en: 'Welcome', vi: 'Chào mừng' },
+        handShape: { en: 'Both hands open at chest level', vi: 'Hai bàn tay mở ngang ngực' },
+        movement: { en: 'Pull both hands gently toward your body.', vi: 'Kéo nhẹ hai tay về phía mình.' },
+        cue: { en: 'Welcome, how can I help?', vi: 'Chào mừng, tôi có thể hỗ trợ gì?' },
+        mistake: { en: 'Keep elbows visible inside the camera frame.', vi: 'Giữ khuỷu tay nằm trong khung camera.' }
       },
       {
-        label: { en: 'Thank You', vi: 'Cam on' },
-        handShape: { en: 'Flat hand from chin', vi: 'Ban tay phang tu cam' },
-        movement: { en: 'Move the hand forward from chin to customer.', vi: 'Dua tay tu cam huong ve phia khach.' },
-        cue: { en: 'Thank you for waiting.', vi: 'Cam on quy khach da cho.' },
-        mistake: { en: 'Avoid a sharp flick; keep the motion calm.', vi: 'Khong hat tay qua manh; giu dong tac mem.' }
+        label: { en: 'Thank You', vi: 'Cảm ơn' },
+        handShape: { en: 'Flat hand from chin', vi: 'Bàn tay phẳng từ cằm' },
+        movement: { en: 'Move the hand forward from chin to customer.', vi: 'Đưa tay từ cằm hướng về phía khách.' },
+        cue: { en: 'Thank you for waiting.', vi: 'Cảm ơn quý khách đã chờ.' },
+        mistake: { en: 'Avoid a sharp flick; keep the motion calm.', vi: 'Không hất tay quá mạnh; giữ động tác mềm.' }
       }
     ]
   },
@@ -265,38 +265,38 @@ export const lessons = [
     durationMinutes: 12,
     title: {
       en: 'Support Questions',
-      vi: 'Hoi Dap Ho Tro'
+      vi: 'Hỏi Đáp Hỗ Trợ'
     },
     description: {
       en: 'Practice signs for asking needs, clarifying requests, and confirming understanding.',
-      vi: 'Luyen ky hieu de hoi nhu cau, lam ro yeu cau va xac nhan thong tin.'
+      vi: 'Luyện ký hiệu để hỏi nhu cầu, làm rõ yêu cầu và xác nhận thông tin.'
     },
     videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-10s.mp4',
     script: {
       en: 'Support flow: ask what the customer needs, clarify details, and confirm understanding.',
-      vi: 'Quy trinh ho tro: hoi nhu cau, lam ro chi tiet va xac nhan da hieu.'
+      vi: 'Quy trình hỗ trợ: hỏi nhu cầu, làm rõ chi tiết và xác nhận đã hiểu.'
     },
     signs: [
       {
-        label: { en: 'Need', vi: 'Can' },
-        handShape: { en: 'Index finger bends downward', vi: 'Ngon tro gap xuong' },
-        movement: { en: 'Bend the index finger twice at chest level.', vi: 'Gap ngon tro hai lan ngang nguc.' },
-        cue: { en: 'What do you need today?', vi: 'Hom nay quy khach can gi?' },
-        mistake: { en: 'Do not point at the customer aggressively.', vi: 'Khong chi thang vao khach qua gay gat.' }
+        label: { en: 'Need', vi: 'Cần' },
+        handShape: { en: 'Index finger bends downward', vi: 'Ngón trỏ gập xuống' },
+        movement: { en: 'Bend the index finger twice at chest level.', vi: 'Gập ngón trỏ hai lần ngang ngực.' },
+        cue: { en: 'What do you need today?', vi: 'Hôm nay quý khách cần gì?' },
+        mistake: { en: 'Do not point at the customer aggressively.', vi: 'Không chỉ thẳng vào khách quá gay gắt.' }
       },
       {
-        label: { en: 'Question', vi: 'Cau hoi' },
-        handShape: { en: 'Index finger lifted', vi: 'Nang ngon tro' },
-        movement: { en: 'Draw a small question mark in the air.', vi: 'Ve dau hoi nho trong khong gian.' },
-        cue: { en: 'May I ask one question?', vi: 'Toi co the hoi mot cau khong?' },
-        mistake: { en: 'Keep the movement small and easy to read.', vi: 'Giu chuyen dong nho va de nhin.' }
+        label: { en: 'Question', vi: 'Câu hỏi' },
+        handShape: { en: 'Index finger lifted', vi: 'Nâng ngón trỏ' },
+        movement: { en: 'Draw a small question mark in the air.', vi: 'Vẽ dấu hỏi nhỏ trong không gian.' },
+        cue: { en: 'May I ask one question?', vi: 'Tôi có thể hỏi một câu không?' },
+        mistake: { en: 'Keep the movement small and easy to read.', vi: 'Giữ chuyển động nhỏ và dễ nhìn.' }
       },
       {
-        label: { en: 'Understand', vi: 'Hieu' },
-        handShape: { en: 'Index finger near forehead', vi: 'Ngon tro gan tran' },
-        movement: { en: 'Flick the finger up lightly from the forehead.', vi: 'Bat nhe ngon tay len tu vung tran.' },
-        cue: { en: 'I understand your request.', vi: 'Toi da hieu yeu cau cua quy khach.' },
-        mistake: { en: 'Do not rush; pause before confirming.', vi: 'Dung lam qua nhanh; tam dung truoc khi xac nhan.' }
+        label: { en: 'Understand', vi: 'Hiểu' },
+        handShape: { en: 'Index finger near forehead', vi: 'Ngón trỏ gần trán' },
+        movement: { en: 'Flick the finger up lightly from the forehead.', vi: 'Bật nhẹ ngón tay lên từ vùng trán.' },
+        cue: { en: 'I understand your request.', vi: 'Tôi đã hiểu yêu cầu của quý khách.' },
+        mistake: { en: 'Do not rush; pause before confirming.', vi: 'Đừng làm quá nhanh; tạm dừng trước khi xác nhận.' }
       }
     ]
   },
@@ -306,38 +306,38 @@ export const lessons = [
     durationMinutes: 15,
     title: {
       en: 'Order Confirmation Flow',
-      vi: 'Quy Trinh Xac Nhan Don'
+      vi: 'Quy Trình Xác Nhận Đơn'
     },
     description: {
       en: 'Advanced lesson for product confirmation, quantity, and payment communication.',
-      vi: 'Bai hoc nang cao cho xac nhan san pham, so luong va thanh toan.'
+      vi: 'Bài học nâng cao cho xác nhận sản phẩm, số lượng và thanh toán.'
     },
     videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-15s.mp4',
     script: {
       en: 'Order flow: confirm the product, show quantity clearly, then explain payment.',
-      vi: 'Quy trinh don hang: xac nhan san pham, hien thi so luong ro rang, sau do giai thich thanh toan.'
+      vi: 'Quy trình đơn hàng: xác nhận sản phẩm, hiển thị số lượng rõ ràng, sau đó giải thích thanh toán.'
     },
     signs: [
       {
-        label: { en: 'Confirm', vi: 'Xac nhan' },
-        handShape: { en: 'Thumb and index close together', vi: 'Ngon cai va ngon tro cham nhau' },
-        movement: { en: 'Tap the closed shape once, then nod.', vi: 'Cham dang tay mot lan roi gat dau.' },
-        cue: { en: 'Please confirm this item.', vi: 'Vui long xac nhan san pham nay.' },
-        mistake: { en: 'Keep the sign in the center, not beside the face.', vi: 'Giu ky hieu o giua khung, khong dua lech mat.' }
+        label: { en: 'Confirm', vi: 'Xác nhận' },
+        handShape: { en: 'Thumb and index close together', vi: 'Ngón cái và ngón trỏ chạm nhau' },
+        movement: { en: 'Tap the closed shape once, then nod.', vi: 'Chạm dáng tay một lần rồi gật đầu.' },
+        cue: { en: 'Please confirm this item.', vi: 'Vui lòng xác nhận sản phẩm này.' },
+        mistake: { en: 'Keep the sign in the center, not beside the face.', vi: 'Giữ ký hiệu ở giữa khung, không đưa lệch mặt.' }
       },
       {
-        label: { en: 'Quantity', vi: 'So luong' },
-        handShape: { en: 'Number hand shape', vi: 'Dang tay bieu thi so' },
-        movement: { en: 'Hold the number steady for one full second.', vi: 'Giu so on dinh trong mot giay.' },
-        cue: { en: 'The quantity is two.', vi: 'So luong la hai.' },
-        mistake: { en: 'Avoid switching numbers too quickly.', vi: 'Khong doi so qua nhanh.' }
+        label: { en: 'Quantity', vi: 'Số lượng' },
+        handShape: { en: 'Number hand shape', vi: 'Dáng tay biểu thị số' },
+        movement: { en: 'Hold the number steady for one full second.', vi: 'Giữ số ổn định trong một giây.' },
+        cue: { en: 'The quantity is two.', vi: 'Số lượng là hai.' },
+        mistake: { en: 'Avoid switching numbers too quickly.', vi: 'Không đổi số quá nhanh.' }
       },
       {
-        label: { en: 'Pay', vi: 'Thanh toan' },
-        handShape: { en: 'Flat hand taps opposite palm', vi: 'Ban tay phang cham vao long ban tay kia' },
-        movement: { en: 'Tap once, then gesture toward the counter.', vi: 'Cham mot lan roi huong ve quay.' },
-        cue: { en: 'You can pay at the counter.', vi: 'Quy khach co the thanh toan tai quay.' },
-        mistake: { en: 'Do not hide the tapping hand from the camera.', vi: 'Dung de tay cham bi che khoi camera.' }
+        label: { en: 'Pay', vi: 'Thanh toán' },
+        handShape: { en: 'Flat hand taps opposite palm', vi: 'Bàn tay phẳng chạm vào lòng bàn tay kia' },
+        movement: { en: 'Tap once, then gesture toward the counter.', vi: 'Chạm một lần rồi hướng về quầy.' },
+        cue: { en: 'You can pay at the counter.', vi: 'Quý khách có thể thanh toán tại quầy.' },
+        mistake: { en: 'Do not hide the tapping hand from the camera.', vi: 'Đừng để tay chạm bị che khỏi camera.' }
       }
     ]
   }

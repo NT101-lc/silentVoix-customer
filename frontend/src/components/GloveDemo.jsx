@@ -4,43 +4,43 @@ import { visualAssets } from '../data/content';
 const predictionFlow = [
   {
     id: 'hello',
-    sign: { en: 'Hello', vi: 'Xin chao' },
-    phrase: { en: 'Hello, how can I help you?', vi: 'Xin chao, toi co the ho tro gi?' },
+    sign: { en: 'Hello', vi: 'Xin chào' },
+    phrase: { en: 'Hello, how can I help you?', vi: 'Xin chào, tôi có thể hỗ trợ gì?' },
     confidence: 94,
-    feedback: { en: 'Palm angle is clear. Keep the wrist steady.', vi: 'Goc ban tay ro. Giu co tay on dinh.' },
+    feedback: { en: 'Palm angle is clear. Keep the wrist steady.', vi: 'Góc bàn tay rõ. Giữ cổ tay ổn định.' },
     intent: 'Greeting'
   },
   {
     id: 'need-help',
-    sign: { en: 'Need Help', vi: 'Can ho tro' },
-    phrase: { en: 'I need help with my order.', vi: 'Toi can ho tro ve don hang.' },
+    sign: { en: 'Need Help', vi: 'Cần hỗ trợ' },
+    phrase: { en: 'I need help with my order.', vi: 'Tôi cần hỗ trợ về đơn hàng.' },
     confidence: 91,
-    feedback: { en: 'Finger bend matches the target pattern.', vi: 'Do cong ngon tay khop mau muc tieu.' },
+    feedback: { en: 'Finger bend matches the target pattern.', vi: 'Độ cong ngón tay khớp mẫu mục tiêu.' },
     intent: 'Support'
   },
   {
     id: 'thank-you',
-    sign: { en: 'Thank You', vi: 'Cam on' },
-    phrase: { en: 'Thank you for waiting.', vi: 'Cam on quy khach da cho.' },
+    sign: { en: 'Thank You', vi: 'Cảm ơn' },
+    phrase: { en: 'Thank you for waiting.', vi: 'Cảm ơn quý khách đã chờ.' },
     confidence: 96,
-    feedback: { en: 'Motion speed is smooth enough for customer service.', vi: 'Toc do chuyen dong muot cho boi canh cham soc khach hang.' },
+    feedback: { en: 'Motion speed is smooth enough for customer service.', vi: 'Tốc độ chuyển động mượt cho bối cảnh chăm sóc khách hàng.' },
     intent: 'Closing'
   },
   {
     id: 'pay',
-    sign: { en: 'Pay', vi: 'Thanh toan' },
-    phrase: { en: 'You can pay at the counter.', vi: 'Quy khach co the thanh toan tai quay.' },
+    sign: { en: 'Pay', vi: 'Thanh toán' },
+    phrase: { en: 'You can pay at the counter.', vi: 'Quý khách có thể thanh toán tại quầy.' },
     confidence: 89,
-    feedback: { en: 'Wrist rotation is slightly low. Raise the palm two centimeters.', vi: 'Xoay co tay hoi thap. Nang ban tay len hai centimet.' },
+    feedback: { en: 'Wrist rotation is slightly low. Raise the palm two centimeters.', vi: 'Xoay cổ tay hơi thấp. Nâng bàn tay lên hai centimet.' },
     intent: 'Payment'
   }
 ];
 
 const calibrationSteps = [
-  { en: 'Open palm baseline', vi: 'Mo ban tay lam moc' },
-  { en: 'Closed fist baseline', vi: 'Nam tay lam moc' },
-  { en: 'Wrist rotation range', vi: 'Do bien xoay co tay' },
-  { en: 'Ready profile', vi: 'Ho so san sang' }
+  { en: 'Open palm baseline', vi: 'Mở bàn tay làm mốc' },
+  { en: 'Closed fist baseline', vi: 'Nắm tay làm mốc' },
+  { en: 'Wrist rotation range', vi: 'Đo biên xoay cổ tay' },
+  { en: 'Ready profile', vi: 'Hồ sơ sẵn sàng' }
 ];
 
 const labels = {
@@ -78,37 +78,37 @@ const labels = {
     emergencySub: 'Fast customer support signs.'
   },
   vi: {
-    title: 'Trung Tam AI Sign Glove',
-    sub: 'Cam bien gang tay, AI du doan, phat giong noi va du lieu training.',
-    connected: 'Gang Tay Da Ket Noi',
-    model: 'Model San Sang',
-    latency: 'Do tre',
-    samples: 'Mau Training',
-    calibration: 'Can Chinh Gang Tay',
-    calibrationSub: 'Tao nhanh ho so.',
-    startCalibration: 'Bat Dau Can Chinh',
-    calibrated: 'Da Can Chinh',
-    liveTitle: 'Du Doan Truc Tiep',
-    liveSub: 'Ket qua sign theo thoi gian thuc.',
-    startLive: 'Chay Demo Live',
-    stopLive: 'Dung Demo Live',
-    predictNext: 'Du Doan Tiep',
-    speak: 'Doc Len',
+    title: 'Trung Tâm AI Sign Glove',
+    sub: 'Cảm biến găng tay, AI dự đoán, phát giọng nói và dữ liệu training.',
+    connected: 'Găng Tay Đã Kết Nối',
+    model: 'Model Sẵn Sàng',
+    latency: 'Độ trễ',
+    samples: 'Mẫu Training',
+    calibration: 'Căn Chỉnh Găng Tay',
+    calibrationSub: 'Tạo nhanh hồ sơ.',
+    startCalibration: 'Bắt Đầu Căn Chỉnh',
+    calibrated: 'Đã Căn Chỉnh',
+    liveTitle: 'Dự Đoán Trực Tiếp',
+    liveSub: 'Kết quả sign theo thời gian thực.',
+    startLive: 'Chạy Demo Live',
+    stopLive: 'Dừng Demo Live',
+    predictNext: 'Dự Đoán Tiếp',
+    speak: 'Đọc Lên',
     reset: 'Reset',
-    confidence: 'Do tin cay',
-    modelState: 'Trang thai model',
-    listening: 'Dang lang nghe',
-    sensorTitle: 'Dong Cam Bien',
-    conversation: 'Che Do Hoi Thoai',
-    conversationSub: 'Sign thanh cau noi ho tro.',
-    noMessages: 'Cac du doan se hien o day khi demo.',
-    training: 'Thu Du Lieu Training',
-    trainingSub: 'Ghi mau theo tung nguoi dung.',
-    label: 'Nhan',
-    record: 'Ghi Mau 3s',
-    coach: 'Phan Hoi AI Coach',
-    emergency: 'Shortcut Dich Vu',
-    emergencySub: 'Sign nhanh cho ho tro khach.'
+    confidence: 'Độ tin cậy',
+    modelState: 'Trạng thái model',
+    listening: 'Đang lắng nghe',
+    sensorTitle: 'Dòng Cảm Biến',
+    conversation: 'Chế Độ Hội Thoại',
+    conversationSub: 'Sign thành câu nói hỗ trợ.',
+    noMessages: 'Các dự đoán sẽ hiện ở đây khi demo.',
+    training: 'Thu Dữ Liệu Training',
+    trainingSub: 'Ghi mẫu theo từng người dùng.',
+    label: 'Nhãn',
+    record: 'Ghi Mẫu 3s',
+    coach: 'Phản Hồi AI Coach',
+    emergency: 'Shortcut Dịch Vụ',
+    emergencySub: 'Sign nhanh cho hỗ trợ khách.'
   }
 };
 

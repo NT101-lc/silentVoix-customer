@@ -10,6 +10,13 @@ function CourseCatalog({ t, lang, lessons, onOpenCourse, onStartLearning }) {
     return classes[id] || '';
   };
 
+  const handleCardKeyDown = (event, lessonId) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onOpenCourse(lessonId);
+    }
+  };
+
   return (
     <section className="panel catalog">
       <div className="section-head">
@@ -19,45 +26,32 @@ function CourseCatalog({ t, lang, lessons, onOpenCourse, onStartLearning }) {
 
       <div className="course-grid bento">
         {lessons.map((lesson) => (
-<<<<<<< HEAD
-          <article key={lesson.id} className="course-card">
-            <div className="course-image-wrap">
-              <img className="course-image" src={visualAssets.lessons[lesson.id]} alt="" />
-              <span className="course-level">{lesson.level}</span>
-            </div>
-            <h3>{lesson.title[lang]}</h3>
-            <div className="course-meta">
-              <span>
-                {t.duration}: {lesson.durationMinutes} {t.minutes}
-              </span>
-              <span>
-                {(lesson.signs || []).length} {t.signsCount}
-              </span>
-=======
-          <article 
-            key={lesson.id} 
+          <article
+            key={lesson.id}
             className={`course-card ${getBentoClass(lesson.id)}`}
             onClick={() => onOpenCourse(lesson.id)}
-            style={{ cursor: 'pointer' }}
+            onKeyDown={(event) => handleCardKeyDown(event, lesson.id)}
+            role="button"
+            tabIndex={0}
+            aria-label={`${t.viewCourse}: ${lesson.title[lang]}`}
           >
-            <div className="course-badge">{lesson.level}</div>
-            
             <div className="course-thumbnail">
+              <img className="course-image" src={visualAssets.lessons[lesson.id]} alt="" />
               <div className="thumbnail-gradient" />
->>>>>>> 93b3114 (new: fe visual)
             </div>
+            <div className="course-badge">{lesson.level}</div>
 
             <div className="course-content">
               <h3>{lesson.title[lang]}</h3>
               <p>{lesson.description[lang]}</p>
-              
+
               <div className="course-footer">
                 <div className="course-meta-inline">
-                  <span>⏱️ {lesson.durationMinutes} {t.minutes}</span>
-                  <span>🤟 {(lesson.signs || []).length} {t.signsCount}</span>
+                  <span>{lesson.durationMinutes} {t.minutes}</span>
+                  <span>{(lesson.signs || []).length} {t.signsCount}</span>
                 </div>
-                <button 
-                  className="action compact-action" 
+                <button
+                  className="action compact-action"
                   onClick={(e) => {
                     e.stopPropagation();
                     onStartLearning(lesson.id);

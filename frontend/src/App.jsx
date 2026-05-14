@@ -340,7 +340,7 @@ function App() {
   const currentRoute = route.name === 'course-detail' ? 'courses' : route.name;
 
   return (
-    <div className={`app theme-${theme}`}>
+    <div className={`app theme-${theme} lang-${lang}`} lang={lang}>
       <div className="bg-glow bg-glow-top" />
       <div className="bg-glow bg-glow-bottom" />
 
