@@ -108,7 +108,7 @@ export const copy = {
     selectSignLabel: 'Select sign',
     selectedSignLabel: 'Selected sign',
     courseImageAlt: 'Person practicing a clear hand gesture with assistive technology',
-    footer: 'SilentVoix - sign glove, video lessons, and camera practice.'
+    footer: 'SilentVoix - Your hands, Your voice'
   },
   vi: {
     brand: 'SilentVoix',
@@ -219,7 +219,7 @@ export const copy = {
     selectSignLabel: 'Chọn ký hiệu',
     selectedSignLabel: 'Ký hiệu đang chọn',
     courseImageAlt: 'Người dùng luyện cử chỉ tay rõ ràng với công nghệ hỗ trợ',
-    footer: 'SilentVoix - sign glove, video bài học và luyện tập camera.'
+    footer: 'SilentVoix - Your hands, Your voice'
   }
 };
 

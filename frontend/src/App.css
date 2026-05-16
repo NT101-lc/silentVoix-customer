@@ -109,11 +109,11 @@
   min-height: 44px;
 }
 
-.brand-dot {
-  width: 28px;
-  height: 28px;
-  border-radius: 3px;
-  background: var(--accent);
+.brand-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex: 0 0 auto;
 }
 
 .nav {

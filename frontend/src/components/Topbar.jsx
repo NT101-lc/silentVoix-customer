@@ -1,3 +1,5 @@
+import silentVoixLogo from '../assets/silentvoix-logo.png';
+
 function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeChange, onNavigate }) {
   const navItems = [
     { key: 'home', label: t.navHome, path: '/' },
@@ -10,7 +12,7 @@ function Topbar({ t, lang, theme, currentRoute, user, onLangChange, onThemeChang
   return (
     <header className="topbar">
       <button className="brand brand-button" onClick={() => onNavigate('/')}>
-        <span className="brand-dot" aria-hidden="true" />
+        <img className="brand-logo" src={silentVoixLogo} alt="" aria-hidden="true" />
         {t.brand}
       </button>
 
