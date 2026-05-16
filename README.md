@@ -19,17 +19,19 @@ PERN full-stack app for sign language learning with:
 
 ## Quick Start
 
-### 1) Database
+### 1) Docker Compose
 
-Start PostgreSQL with Docker Compose:
+Run the full stack with Docker Compose:
 
 ```bash
 docker compose up -d
 ```
 
-Compose only starts the database. It creates the `silentvoix` database and loads `backend/src/db/schema.sql` on first initialization.
+Frontend runs at `http://localhost:8080`.
+Backend runs at `http://localhost:4000`.
+PostgreSQL runs at `localhost:5432` and loads `backend/src/db/schema.sql` on first initialization.
 
-### 2) Backend setup
+### 2) Backend setup for manual dev
 
 ```bash
 cd backend
@@ -40,7 +42,7 @@ npm run dev
 
 Backend runs at `http://localhost:4000`.
 
-### 3) Frontend setup
+### 3) Frontend setup for manual dev
 
 ```bash
 cd frontend
@@ -76,10 +78,16 @@ Frontend runs at `http://localhost:5173`.
 
 ## Docker
 
-Docker Compose is used only for PostgreSQL:
+Docker Compose runs PostgreSQL, the backend API, and the frontend:
 
 ```bash
 docker compose up -d
+```
+
+Rebuild images after code changes:
+
+```bash
+docker compose up --build -d
 ```
 
 Stop containers:

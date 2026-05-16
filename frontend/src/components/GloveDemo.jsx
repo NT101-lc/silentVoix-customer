@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { visualAssets } from '../data/content';
 
 const predictionFlow = [
@@ -36,27 +36,16 @@ const predictionFlow = [
   }
 ];
 
-const calibrationSteps = [
-  { en: 'Open palm baseline', vi: 'Mở bàn tay làm mốc' },
-  { en: 'Closed fist baseline', vi: 'Nắm tay làm mốc' },
-  { en: 'Wrist rotation range', vi: 'Đo biên xoay cổ tay' },
-  { en: 'Ready profile', vi: 'Hồ sơ sẵn sàng' }
-];
-
 const labels = {
   en: {
     title: 'Sign Glove AI Control Center',
-    sub: 'Glove sensors, AI prediction, speech output, and training data.',
-    connected: 'Glove Connected',
-    model: 'Model Ready',
-    latency: 'Latency',
-    samples: 'Training Samples',
-    calibration: 'Glove Calibration',
-    calibrationSub: 'Quick profile setup.',
-    startCalibration: 'Start Calibration',
-    calibrated: 'Calibrated',
-    liveTitle: 'Live Prediction',
-    liveSub: 'Real-time sign output.',
+    sub: 'Try a gesture and hear the support phrase.',
+    connected: 'Connected',
+    model: 'Ready',
+    latency: 'Fast',
+    samples: 'Phrases',
+    liveTitle: 'Glove Translation',
+    liveSub: 'The glove turns signs into speech.',
     startLive: 'Start Live Demo',
     stopLive: 'Stop Live Demo',
     predictNext: 'Predict Next',
@@ -65,31 +54,22 @@ const labels = {
     confidence: 'Confidence',
     modelState: 'Model State',
     listening: 'Listening',
-    sensorTitle: 'Sensor Stream',
-    conversation: 'Conversation Mode',
-    conversationSub: 'Signs become spoken support.',
-    noMessages: 'Predictions will appear here during the demo.',
-    training: 'Collect Training Data',
-    trainingSub: 'Record samples per user.',
-    label: 'Label',
-    record: 'Record 3s Sample',
-    coach: 'AI Coach Feedback',
-    emergency: 'Service Shortcuts',
-    emergencySub: 'Fast customer support signs.'
+    conversation: 'Spoken Phrases',
+    conversationSub: 'Recent phrases appear here.',
+    noMessages: 'Press Start Live Demo or Predict Next.',
+    coach: 'Quick Phrases',
+    emergency: 'Tap a phrase',
+    emergencySub: 'Speak common support lines instantly.'
   },
   vi: {
-    title: 'Trung Tâm AI Sign Glove',
-    sub: 'Cảm biến găng tay, AI dự đoán, phát giọng nói và dữ liệu training.',
-    connected: 'Găng Tay Đã Kết Nối',
-    model: 'Model Sẵn Sàng',
-    latency: 'Độ trễ',
-    samples: 'Mẫu Training',
-    calibration: 'Căn Chỉnh Găng Tay',
-    calibrationSub: 'Tạo nhanh hồ sơ.',
-    startCalibration: 'Bắt Đầu Căn Chỉnh',
-    calibrated: 'Đã Căn Chỉnh',
-    liveTitle: 'Dự Đoán Trực Tiếp',
-    liveSub: 'Kết quả sign theo thời gian thực.',
+    title: 'Demo AI Sign Glove',
+    sub: 'Thử một cử chỉ và nghe câu hỗ trợ được phát ra.',
+    connected: 'Đã Kết Nối',
+    model: 'Sẵn Sàng',
+    latency: 'Nhanh',
+    samples: 'Câu Nói',
+    liveTitle: 'Dịch Cử Chỉ',
+    liveSub: 'Găng tay chuyển sign thành giọng nói.',
     startLive: 'Chạy Demo Live',
     stopLive: 'Dừng Demo Live',
     predictNext: 'Dự Đoán Tiếp',
@@ -98,42 +78,22 @@ const labels = {
     confidence: 'Độ tin cậy',
     modelState: 'Trạng thái model',
     listening: 'Đang lắng nghe',
-    sensorTitle: 'Dòng Cảm Biến',
-    conversation: 'Chế Độ Hội Thoại',
-    conversationSub: 'Sign thành câu nói hỗ trợ.',
-    noMessages: 'Các dự đoán sẽ hiện ở đây khi demo.',
-    training: 'Thu Dữ Liệu Training',
-    trainingSub: 'Ghi mẫu theo từng người dùng.',
-    label: 'Nhãn',
-    record: 'Ghi Mẫu 3s',
-    coach: 'Phản Hồi AI Coach',
-    emergency: 'Shortcut Dịch Vụ',
-    emergencySub: 'Sign nhanh cho hỗ trợ khách.'
+    conversation: 'Câu Đã Phát',
+    conversationSub: 'Các câu gần đây sẽ hiện tại đây.',
+    noMessages: 'Bấm Chạy Demo Live hoặc Dự Đoán Tiếp.',
+    coach: 'Câu Nhanh',
+    emergency: 'Chạm để phát',
+    emergencySub: 'Phát nhanh các câu hỗ trợ thường dùng.'
   }
 };
 
 function GloveDemo({ lang }) {
   const text = labels[lang] || labels.en;
   const [activeIndex, setActiveIndex] = useState(0);
-  const [calibrationIndex, setCalibrationIndex] = useState(-1);
   const [isLive, setIsLive] = useState(false);
   const [sensorTick, setSensorTick] = useState(0);
   const [messages, setMessages] = useState([]);
-  const [sampleCount, setSampleCount] = useState(24);
-  const [trainingLabel, setTrainingLabel] = useState(predictionFlow[0].id);
   const activePrediction = predictionFlow[activeIndex];
-  const isCalibrated = calibrationIndex >= calibrationSteps.length - 1;
-
-  const sensors = useMemo(() => {
-    const base = activeIndex * 11 + sensorTick;
-    return [
-      { name: 'Flex 1', value: 48 + ((base * 7) % 34) },
-      { name: 'Flex 2', value: 42 + ((base * 5) % 38) },
-      { name: 'Flex 3', value: 36 + ((base * 9) % 42) },
-      { name: 'Gyro X', value: 54 + ((base * 6) % 30) },
-      { name: 'Gyro Y', value: 46 + ((base * 4) % 36) }
-    ];
-  }, [activeIndex, sensorTick]);
 
   const addMessage = useCallback((prediction) => {
     setMessages((current) => [
@@ -177,18 +137,6 @@ function GloveDemo({ lang }) {
     return () => window.clearInterval(intervalId);
   }, [addMessage, isLive, lang, speak]);
 
-  function startCalibration() {
-    setCalibrationIndex(0);
-    let nextStep = 0;
-    const intervalId = window.setInterval(() => {
-      nextStep += 1;
-      setCalibrationIndex(nextStep);
-      if (nextStep >= calibrationSteps.length - 1) {
-        window.clearInterval(intervalId);
-      }
-    }, 650);
-  }
-
   function predictNext() {
     const nextIndex = (activeIndex + 1) % predictionFlow.length;
     const nextPrediction = predictionFlow[nextIndex];
@@ -196,11 +144,6 @@ function GloveDemo({ lang }) {
     setSensorTick((current) => current + 1);
     addMessage(nextPrediction);
     speak(nextPrediction.phrase[lang]);
-  }
-
-  function recordSample() {
-    setSampleCount((current) => current + 1);
-    setSensorTick((current) => current + 2);
   }
 
   function toggleLiveDemo() {
@@ -216,7 +159,7 @@ function GloveDemo({ lang }) {
     <section className="glove-page">
       <div className="glove-hero panel">
         <div>
-          <span className="eyebrow">SilentVoix Hardware Demo</span>
+          <span className="eyebrow">SilentVoix Assistive Demo</span>
           <h1>{text.title}</h1>
           <p>{text.sub}</p>
         </div>
@@ -226,37 +169,14 @@ function GloveDemo({ lang }) {
           <div className="glove-sensor-chip chip-two">IMU</div>
         </div>
         <div className="glove-stats">
-          <StatusCard label={text.connected} value="BLE-04" tone="online" />
-          <StatusCard label={text.model} value="CNN-LSTM" tone="ready" />
+          <StatusCard label={text.connected} value="OK" tone="online" />
+          <StatusCard label={text.model} value="AI" tone="ready" />
           <StatusCard label={text.latency} value="38ms" tone="fast" />
-          <StatusCard label={text.samples} value={String(sampleCount)} tone="sample" />
+          <StatusCard label={text.samples} value="4" tone="sample" />
         </div>
       </div>
 
-      <div className="glove-grid">
-        <article className="panel calibration-panel">
-          <div className="section-head">
-            <h2>{text.calibration}</h2>
-            <p>{text.calibrationSub}</p>
-          </div>
-          <div className="calibration-steps">
-            {calibrationSteps.map((step, index) => (
-              <div
-                key={step.en}
-                className={`calibration-step ${index <= calibrationIndex ? 'complete' : ''} ${
-                  index === calibrationIndex && !isCalibrated ? 'active' : ''
-                }`}
-              >
-                <span>{index + 1}</span>
-                <p>{step[lang]}</p>
-              </div>
-            ))}
-          </div>
-          <button className="action" onClick={startCalibration}>
-            {isCalibrated ? text.calibrated : text.startCalibration}
-          </button>
-        </article>
-
+      <div className="glove-grid simplified">
         <article className="panel live-panel">
           <div className="section-head">
             <h2>{text.liveTitle}</h2>
@@ -294,26 +214,6 @@ function GloveDemo({ lang }) {
           </div>
         </article>
 
-        <article className="panel sensor-panel">
-          <div className="section-head">
-            <h2>{text.sensorTitle}</h2>
-            <p>Flex + IMU telemetry</p>
-          </div>
-          <div className="sensor-list">
-            {sensors.map((sensor) => (
-              <div key={sensor.name} className="sensor-row">
-                <div>
-                  <span>{sensor.name}</span>
-                  <b>{sensor.value}</b>
-                </div>
-                <div className="sensor-meter">
-                  <span style={{ width: `${sensor.value}%` }} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </article>
-
         <article className="panel conversation-panel">
           <div className="section-head">
             <h2>{text.conversation}</h2>
@@ -331,28 +231,6 @@ function GloveDemo({ lang }) {
               <p className="empty-state">{text.noMessages}</p>
             )}
           </div>
-        </article>
-
-        <article className="panel training-panel">
-          <div className="section-head">
-            <h2>{text.training}</h2>
-            <p>{text.trainingSub}</p>
-          </div>
-          <label className="auth-label">
-            {text.label}
-            <select value={trainingLabel} onChange={(event) => setTrainingLabel(event.target.value)} className="lang-select">
-              {predictionFlow.map((prediction) => (
-                <option key={prediction.id} value={prediction.id}>
-                  {prediction.sign[lang]}
-                </option>
-              ))}
-            </select>
-          </label>
-          <button className="action" onClick={recordSample}>{text.record}</button>
-          <div className="training-progress">
-            <span style={{ width: `${Math.min(100, sampleCount * 2)}%` }} />
-          </div>
-          <p className="progress-label">{sampleCount} {text.samples}</p>
         </article>
 
         <article className="panel coach-panel">

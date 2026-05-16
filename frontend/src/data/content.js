@@ -14,13 +14,13 @@ export const copy = {
     authNavAria: 'Authentication navigation',
     authWelcome: 'Welcome',
     skipToContent: 'Skip to main content',
-    heroTitle: 'Train Customer Sign Language With Confidence',
-    heroSubtitle: 'Visual lessons, live practice, and glove-powered sign support for customer teams.',
-    heroStatOne: 'Guided signs',
-    heroStatTwo: 'EN / VI',
-    heroStatThree: 'Live camera',
-    catalogTitle: 'Course Catalog',
-    catalogSub: 'Pick a visual practice path.',
+    heroTitle: 'Make Every Gesture Heard',
+    heroSubtitle: 'A visual sign-glove demo for quick support, practice, and clearer conversations.',
+    heroStatOne: 'Simple phrases',
+    heroStatTwo: 'Voice output',
+    heroStatThree: 'Camera practice',
+    catalogTitle: 'Start With One Skill',
+    catalogSub: 'Short visual lessons. No clutter.',
     viewCourse: 'View Course',
     startLearning: 'Start Learning',
     lessonsTitle: 'Lesson Library',
@@ -107,7 +107,7 @@ export const copy = {
     currentPageLabel: 'Current page',
     selectSignLabel: 'Select sign',
     selectedSignLabel: 'Selected sign',
-    courseImageAlt: 'Customer service sign-language practice session',
+    courseImageAlt: 'Person practicing a clear hand gesture with assistive technology',
     footer: 'SilentVoix - sign glove, video lessons, and camera practice.'
   },
   vi: {
@@ -125,13 +125,13 @@ export const copy = {
     authNavAria: 'Điều hướng xác thực',
     authWelcome: 'Xin chào',
     skipToContent: 'Bỏ qua đến nội dung chính',
-    heroTitle: 'Luyện Sign Language Cho Chăm Sóc Khách Hàng',
-    heroSubtitle: 'Bài học trực quan, luyện camera và hỗ trợ sign glove cho đội ngũ khách hàng.',
-    heroStatOne: 'Sign hướng dẫn',
-    heroStatTwo: 'EN / VI',
-    heroStatThree: 'Camera live',
-    catalogTitle: 'Danh Sách Khóa Học',
-    catalogSub: 'Chọn lộ trình trực quan.',
+    heroTitle: 'Để Mỗi Cử Chỉ Được Lắng Nghe',
+    heroSubtitle: 'Demo sign glove trực quan giúp luyện tập, phát giọng nói và giao tiếp rõ hơn.',
+    heroStatOne: 'Câu đơn giản',
+    heroStatTwo: 'Phát giọng nói',
+    heroStatThree: 'Luyện camera',
+    catalogTitle: 'Bắt Đầu Với Một Kỹ Năng',
+    catalogSub: 'Bài học ngắn, trực quan, ít nhiễu.',
     viewCourse: 'Xem Khóa Học',
     startLearning: 'Bắt Đầu Học',
     lessonsTitle: 'Thư Viện Bài Học',
@@ -218,18 +218,18 @@ export const copy = {
     currentPageLabel: 'Trang hiện tại',
     selectSignLabel: 'Chọn ký hiệu',
     selectedSignLabel: 'Ký hiệu đang chọn',
-    courseImageAlt: 'Buổi luyện sign language cho chăm sóc khách hàng',
+    courseImageAlt: 'Người dùng luyện cử chỉ tay rõ ràng với công nghệ hỗ trợ',
     footer: 'SilentVoix - sign glove, video bài học và luyện tập camera.'
   }
 };
 
 export const visualAssets = {
   hero:
-    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80',
+    'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80',
   glove:
-    'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
   lessons: {
-    1: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80',
+    1: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80',
     2: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80',
     3: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=900&q=80'
   }
@@ -241,12 +241,12 @@ export const lessons = [
     level: 'Beginner',
     durationMinutes: 8,
     title: {
-      en: 'Greeting Customers',
-      vi: 'Chào Hỏi Khách Hàng'
+      en: 'Say Hello',
+      vi: 'Chào Hỏi'
     },
     description: {
-      en: 'Learn hello, welcome, and thank you signs for front-desk interactions.',
-      vi: 'Học các ký hiệu xin chào, chào mừng và cảm ơn cho quầy tiếp tân.'
+      en: 'Hello, welcome, and thank you.',
+      vi: 'Xin chào, chào mừng và cảm ơn.'
     },
     videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-5s.mp4',
     script: {
@@ -282,12 +282,12 @@ export const lessons = [
     level: 'Intermediate',
     durationMinutes: 12,
     title: {
-      en: 'Support Questions',
-      vi: 'Hỏi Đáp Hỗ Trợ'
+      en: 'Ask For Help',
+      vi: 'Cần Hỗ Trợ'
     },
     description: {
-      en: 'Practice signs for asking needs, clarifying requests, and confirming understanding.',
-      vi: 'Luyện ký hiệu để hỏi nhu cầu, làm rõ yêu cầu và xác nhận thông tin.'
+      en: 'Need help, question, and understand.',
+      vi: 'Cần hỗ trợ, câu hỏi và đã hiểu.'
     },
     videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-10s.mp4',
     script: {
@@ -323,12 +323,12 @@ export const lessons = [
     level: 'Advanced',
     durationMinutes: 15,
     title: {
-      en: 'Order Confirmation Flow',
-      vi: 'Quy Trình Xác Nhận Đơn'
+      en: 'Confirm Details',
+      vi: 'Xác Nhận'
     },
     description: {
-      en: 'Advanced lesson for product confirmation, quantity, and payment communication.',
-      vi: 'Bài học nâng cao cho xác nhận sản phẩm, số lượng và thanh toán.'
+      en: 'Confirm, quantity, and payment.',
+      vi: 'Xác nhận, số lượng và thanh toán.'
     },
     videoUrl: 'https://samplelib.com/lib/preview/mp4/sample-15s.mp4',
     script: {

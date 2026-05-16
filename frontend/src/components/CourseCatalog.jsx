@@ -31,7 +31,11 @@ function CourseCatalog({ t, lang, lessons, onOpenCourse, onStartLearning }) {
 
             <div className="course-content">
               <h3>{lesson.title[lang]}</h3>
-              <p>{lesson.description[lang]}</p>
+              <div className="lesson-signs course-signs">
+                {(lesson.signs || []).slice(0, 3).map((sign) => (
+                  <span key={sign.label.en}>{sign.label[lang]}</span>
+                ))}
+              </div>
 
               <div className="course-footer">
                 <div className="course-meta-inline">
